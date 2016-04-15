@@ -7,17 +7,17 @@
 		var container = $(this);
 		options = $.extend({
 			iMax: 1000,
-			iWidth: 20,
+			iWidth: 30,
 			bMgLeft: 10,
 			bMgRight: 10,
-			bMgBottom: 40,
-			bWidth: 40,
+			bMgBottom: 70,
+			bWidth: 60,
 			perfectB: 20,
 			greatB: 10,
 			missMax: 5,
-			target: [0, 800, 900, 1000],
-			createSpd: [0, 450, 400, 350],
-			fallSpd: [0, 600, 550, 500],
+			target: [0, 500, 600, 700],
+			createSpd: [0, 750, 700, 650],
+			fallSpd: [0, 900, 850, 800],
 			wWidth: $(window).width(),
 			wHeight: $(window).height()
 		}, options);

@@ -1,6 +1,6 @@
-@bgc: #eee;
-@mainc: #ddd;
-@boxc: #ccc;
+@bgc: #F78F8F;
+@mainc: #DE5060;
+@boxc: #FFCFD4;
 
 * {
 	padding: 0; 
@@ -22,25 +22,26 @@ body {
 		display: none;
 		position: fixed;
 		z-index: 100;
-		width: 80px;
-		height: 40px;
-		border-radius: 3px;
-		border: 2px solid #fff;
-		color: #fff;
+		width: 120px;
+		height: 45px;
+		border-radius: 10px;
+		color: lighten(@bgc, 15%);
 		top: 50%;
 		left: 50%;
 		font-size: 20px;
-		font-weight: bold;
-		line-height: 40px;
+		letter-spacing: 2px;
+		line-height: 45px;
 		text-align: center;
-		margin-left: -40px;
+		margin-left: -60px;
 		margin-top: -20px;
+		background: darken(@bgc, 10%);
+		font-weight: bold;
 	}
 	.gameover, .gameclear {
 		display: none;
 		position: fixed;
 		z-index: 80;
-		background: rgba(255, 255, 255, 0.4);
+		background: rgba(255, 255, 255, 0.6);
 		width: 200px;
 		height: 140px;
 		padding: 15px;
@@ -53,6 +54,7 @@ body {
 		letter-spacing: 1px;
 		line-height: 25px;
 		color: @mainc;
+		border-radius: 10px;
 	}
 	.bar {
 		position: fixed;
@@ -86,7 +88,14 @@ body {
 		z-index: 50;
 		top: 60px;
 		right: 15px;
-		color: @mainc;
+		color: lighten(@bgc, 15%);
+		background: darken(@bgc, 5%);
+		border: 2px solid lighten(@bgc, 15%);
+		border-radius: 9px;
+		text-align: center;
+		width: 25px;
+		height: 25px;
+		line-height: 20px;
 	}
 	.tip {
 		display: none;
@@ -96,44 +105,45 @@ body {
 		width: 100%;
 		text-align: center;
 		font-size: 70px;
-		text-shadow: 0 0 10px #fff;
+		text-shadow: 0 0 3px @mainc;
 		opacity: 0.8;
 		&.tip-perfect {
-			color: @mainc;
+			color: lighten(@bgc, 20%);
 		}
 		&.tip-great {
-			color: lighten(@mainc, 10%);
+			color: lighten(@bgc, 15%);
 		}
 		&.tip-miss {
-			color: lighten(@mainc, 20%);
+			color: lighten(@bgc, 10%);
 		}
 	}
 	.box {
 		display: none;
-		width: 60px;
-		height: 50px;
+		width: 80px;
+		height: 80px;
 		background: @boxc;
 		position: fixed;
 		z-index: 20;
 		bottom: 0;
-		left: 100px;
+		left: 0;
+		border-radius: 10px;
 	}
 	.item {
-		width: 20px;
-		height: 20px;
-		border-radius: 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
 		position: fixed;
 		z-index: 10;
-		top: -20px;
+		top: -30px;
 		left: 0;
 		&.item0 {
 			background: @mainc;
 		}
 		&.item1 {
-			background: lighten(@mainc, 10%)
+			background: darken(@mainc, 20%)
 		}
 		&.item2 {
-			background: lighten(@mainc, 20%)
+			background: lighten(@mainc, 30%)
 		}
 	}
 	.gift {
@@ -143,7 +153,7 @@ body {
 		height: 250px;
 		bottom: -250px;
 		&#gift1 {
-			background: darken(@bgc, 5%);
+			background: darken(@bgc, 15%);
 			border-radius: 125px;
 		}
 		&#gift2 {
@@ -151,7 +161,7 @@ body {
 			border-radius: 200px;
 		}
 		&#gift3 {
-			background: lighten(@bgc, 5%);
+			background: darken(@bgc, 13%);
 			border-radius: 200px;
 		}
 	}
