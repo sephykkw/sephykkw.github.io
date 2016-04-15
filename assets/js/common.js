@@ -1,4 +1,3 @@
-
 function orient(fn1, fn2) {
 	if (!window.orientation || window.orientation == 0 || window.orientation == 180) {
 		$("body").attr("class", "portrait");
