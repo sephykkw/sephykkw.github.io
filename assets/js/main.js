@@ -1,0 +1,199 @@
+// JavaScript Document
+$(function() {
+	
+	var iMax = 1000;
+	var iWidth = 20;
+	var bMgLeft = 10;
+	var bMgRight = 10;
+	var bMgBottom = 40;
+	var bWidth = 40;
+	var perfectB = 20;
+	var greatB = 10;
+	var missMax = 5;
+	var target = [0, 800, 900, 1000];
+	var createSpd = [0, 450, 400, 350];
+	var fallSpd = [0, 600, 550, 500];
+	
+	var wWidth = $(window).width();
+	var wHeight = $(window).height();
+	
+	var t, iCount, score, missCount, diff, tCount, level;
+	
+	orient();
+	init();
+	
+	$('.start').on('mouseup', function() {
+		$('.start, .gameover, .gameclear').hide();
+		level = 1;
+		resetData();
+		loadGame();
+	});
+	$('.next').on('mouseup', function() {
+		$('.next, .gameclear').hide();
+		$('.gift').animate({bottom: '-250px'}, 500);
+		setTimeout(function() {
+			level++;
+			resetData();
+			loadGame();
+		}, 500)
+	});
+	$('.box').swipe( {
+		swipeStatus:function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection)
+		{
+			if (phase == 'start') {
+				diff = event.targetTouches[0].pageX - $(this).offset().left;
+			}
+			if (phase == 'start' || phase == 'move') {
+				$('.box').css('left', event.targetTouches[0].pageX - diff + 'px');
+			}
+		},
+		threshold: 1,
+		maxTimeThreshold: null,
+		fingers: 1
+	});
+	$(window).on( 'orientationchange', function(e){
+		orient();
+	}); 
+	function init() {
+		var html = '<div class="bar">SCORE: <span class="score">0</span></div>';
+		html += '<div class="lv">LEVEL <span class="level">1</span></div>';
+		html += '<div class="miss">5</div>';
+		html += '<div class="start">START</div>';
+		html += '<div class="next">NEXT</div>';
+		html += '<div class="gameclear">GAME CLEAR</div>';
+		html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
+		html += '<div class="box"></div>';
+		$('.container').append(html);
+		$('.start').delay(500).fadeIn(300);
+	}
+	function loadGame() {
+		$('.box').css('left', (wWidth - bWidth - bMgLeft - bMgRight) / 2 + 'px').fadeIn(500);
+		setTimeout(createItem, 2000);
+	}
+	function resetData() {
+		iCount = 0;
+		tCount = 0;
+		score = 0;
+		diff = 0;
+		missCount = missMax;
+		$('.score').html(score);
+		$('.miss').html(missCount);
+		$('.level').html(level);
+	}
+	function createItem() {
+		var html = '<div class="item item' + randItem() + '" id="i' + toId(iCount) + '"></div>';
+		$('.container').append(html);
+		var $this = $('#i' + toId(iCount));
+		$this.css('left', randX());
+		var thisSpd = randFallSpd();
+		$this.animate({'top': wHeight - iWidth - bMgBottom + 'px'}, {duration: thisSpd, easing: 'easeInSine', complete: function() {
+			var iP = $this.offset().left + iWidth / 2;
+			if (iP > $('.box').offset().left && iP < $('.box').offset().left + bWidth + bMgLeft + bMgRight) {
+				if (iP > $('.box').offset().left + bMgLeft && iP < $('.box').offset().left + bMgLeft + bWidth) {
+					score += perfectB;
+					appendTip('perfect');
+				} else {
+					score += greatB;
+					appendTip('great');
+				}
+				$('.score').html(score);
+				$this.animate({'opacity': '0'}, 500);
+				setTimeout(function() {
+					$this.remove();
+				}, 500);
+				if(score > target[level]) {
+					clearTimeout(t);
+					clearGame();
+					return;
+				}
+			} else {
+				var missSpd  = ( (bMgBottom) / (wHeight - iWidth - bMgBottom) ) * thisSpd / 2;
+				missCount--;
+				appendTip('miss');
+				$this.animate({'top': wHeight - iWidth + 'px'}, missSpd, 'linear', function() {
+					$this.animate({'opacity': '0'}, 500);
+					setTimeout(function() {
+						$this.remove();
+					}, 500);
+				});
+			}
+		}});
+		iCount++;
+		if (iCount < iMax && missCount > -1) {
+			$('.miss').html(missCount);
+			t = setTimeout(createItem, randTime(createSpd[level]));
+		} 
+		else {
+			clearTimeout(t);
+			finishGame();
+		}
+	}
+	function clearGame() {
+		$('.tip, .item').stop(true).remove();
+		$('.box').hide();
+		if (level < target.length - 1) {
+			$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
+			var html = '<div class="gift" id="gift' + level + '"></div>';
+			$('.container').append(html);
+			$('#gift' + level).delay(600).animate({bottom: '-180px'}, 1000).delay(300).animate({bottom: '-220px'}, 70).delay(100).animate({bottom: 0}, 300).animate({bottom: '-20px'}, 50, function() {
+				setTimeout(function() {
+					$('.next').fadeIn(300);
+				}, 1000);
+			});
+		} else {
+			$('.gameclear').html('GAME CLEAR').show();
+			$('.start').html('RETRY').show();
+		}
+	}
+	function finishGame() {
+		$('.tip, .item').stop(true).remove();
+		$('.box').hide();
+		$('.goscore').html(score);
+		$('.gameover').show();
+		$('.start').html('RETRY').show();
+	}
+	function appendTip(rank) {
+		$('.tip').stop(true).remove();
+		var html = '<div class="tip tip-' + rank + '" id="t' + toId(tCount) + '">' + rank.toUpperCase() + '</div>';
+		$('.container').append(html);
+		var $this = $('#t' + toId(tCount));
+		$this.fadeIn(200).delay(400).fadeOut(200);
+		tCount++;
+		setTimeout(function() {
+			$this.remove();
+		}, 800);
+	}
+	function toId(num) {
+		if (num < 10) {
+			num = '00' + num;
+		} else if (num < 100) {
+			num = '0' + num;
+		}
+		return num;
+	}
+	function randTime() {
+		return Math.floor(Math.random() * 500) + createSpd[level];
+	}
+	function randItem() {
+		return Math.floor(Math.random() * 3);
+	}
+	function randX() {
+		return (Math.floor(Math.random() * (wWidth - iWidth - bMgRight - bMgLeft)) + iWidth / 2 + bMgLeft) + 'px';
+	}
+	function randFallSpd() {
+		return Math.floor(Math.random() * 500) + fallSpd[level];
+	}
+})
+
+function orient() {
+	if (window.orientation == 0 || window.orientation == 180) {
+		$("body").attr("class", "portrait");
+		orientation = 'portrait';
+		return false;
+	}
+	else if (window.orientation == 90 || window.orientation == -90) {
+		$("body").attr("class", "landscape");
+		orientation = 'landscape';
+		return false;
+	}
+}	
