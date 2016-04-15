@@ -24,12 +24,14 @@
 		
 		init();
 		$('.start').on('mouseup', function() {
+			container.addClass('active');
 			$('.start, .gameover, .gameclear').hide();
 			level = 1;
 			resetData();
 			loadGame();
 		});
 		$('.next').on('mouseup', function() {
+			container.addClass('active');
 			$('.next, .gameclear').hide();
 			$('.gift').animate({bottom: '-250px'}, 500);
 			setTimeout(function() {
@@ -130,6 +132,7 @@
 		function clearGame() {
 			$('.tip, .item').stop(true).remove();
 			$('.box').hide();
+			container.removeClass('active');
 			if (level < options.target.length - 1) {
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
 				var html = '<div class="gift" id="gift' + level + '"></div>';
@@ -150,6 +153,7 @@
 			$('.goscore').html(score);
 			$('.gameover').show();
 			$('.start').html('RETRY').show();
+			container.removeClass('active');
 		}
 		function appendTip(rank) {
 			$('.tip').stop(true).remove();
