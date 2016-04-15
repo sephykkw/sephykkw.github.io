@@ -8,9 +8,17 @@
     <script src="./assets/js/jquery-1.12.1.min.js"></script>
     <script src="./assets/js/easing.js"></script>
     <script src="./assets/js/jquery.touchSwipe.min.js"></script>
-    <script src="./assets/js/game1.js"></script>
+    
 </head>
 <body>
 	<div class="container"></div>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/game1.js"></script>
+    <script>
+		$(function() {
+			orient();
+			$('.container').game1();
+		});
+	</script>
 </body>
 </html>
