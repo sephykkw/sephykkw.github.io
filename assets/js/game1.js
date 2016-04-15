@@ -1,8 +1,5 @@
 (function ($) {
-	
-	var wWidth = $(window).width();
-	var wHeight = $(window).height();
-	
+
 	var t, iCount, score, missCount, diff, tCount, level;
 	
 	$.fn.game1 = function(options) {
@@ -20,7 +17,9 @@
 			missMax: 5,
 			target: [0, 800, 900, 1000],
 			createSpd: [0, 450, 400, 350],
-			fallSpd: [0, 600, 550, 500]
+			fallSpd: [0, 600, 550, 500],
+			wWidth: $(window).width(),
+			wHeight: $(window).height()
 		}, options);
 		
 		init();
@@ -67,7 +66,7 @@
 		  $('.start').delay(500).fadeIn(300);
 		}
 		function loadGame() {
-			$('.box').css('left', (wWidth - options.bWidth - options.bMgLeft - options.bMgRight) / 2 + 'px').fadeIn(500);
+			$('.box').css('left', (options.wWidth - options.bWidth - options.bMgLeft - options.bMgRight) / 2 + 'px').fadeIn(500);
 			setTimeout(createItem, 2000);
 		}
 		function resetData() {
@@ -86,7 +85,7 @@
 			var $this = $('#i' + toId(iCount));
 			$this.css('left', randX());
 			var thisSpd = randFallSpd();
-			$this.animate({'top': wHeight - options.iWidth - options.bMgBottom + 'px'}, {duration: thisSpd, easing: 'easeInSine', complete: function() {
+			$this.animate({'top': options.wHeight - options.iWidth - options.bMgBottom + 'px'}, {duration: thisSpd, easing: 'easeInSine', complete: function() {
 				var iP = $this.offset().left + options.iWidth / 2;
 				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth + options.bMgLeft + options.bMgRight) {
 					if (iP > $('.box').offset().left + options.bMgLeft && iP < $('.box').offset().left + options.bMgLeft + options.bWidth) {
@@ -107,10 +106,10 @@
 						return;
 					}
 				} else {
-					var missSpd  = ( (options.bMgBottom) / (wHeight - options.iWidth - options.bMgBottom) ) * thisSpd / 2;
+					var missSpd  = ( (options.bMgBottom) / (options.wHeight - options.iWidth - options.bMgBottom) ) * thisSpd / 2;
 					missCount--;
 					appendTip('miss');
-					$this.animate({'top': wHeight - options.iWidth + 'px'}, missSpd, 'linear', function() {
+					$this.animate({'top': options.wHeight - options.iWidth + 'px'}, missSpd, 'linear', function() {
 						$this.animate({'opacity': '0'}, 500);
 						setTimeout(function() {
 							$this.remove();
@@ -178,7 +177,7 @@
 			return Math.floor(Math.random() * 3);
 		}
 		function randX() {
-			return (Math.floor(Math.random() * (wWidth - options.iWidth - options.bMgRight - options.bMgLeft)) + options.iWidth / 2 + options.bMgLeft) + 'px';
+			return (Math.floor(Math.random() * (options.wWidth - options.iWidth - options.bMgRight - options.bMgLeft)) + options.iWidth / 2 + options.bMgLeft) + 'px';
 		}
 		function randFallSpd() {
 			return Math.floor(Math.random() * 500) + options.fallSpd[level];

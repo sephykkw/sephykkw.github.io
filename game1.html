@@ -16,9 +16,21 @@
     <script src="./assets/js/game1.js"></script>
     <script>
 		$(function() {
-			alert(window.orientation);
-			orient();
-			$('.container').game1();
+			var funcPort =　function() {
+				if (!$('.container').html()) {
+					$('.container').game1();
+				}
+			}
+			var funcLand = function() {
+				if (!$('.container').html()) {
+					$('.container').html('<div style="width: 100%; text-align: center; position: absolute; top: 48%">Pls rotate your screen</div>');
+				}
+			}
+			orient(funcPort, funcLand);
+			$(window).on( 'orientationchange', function(e){
+				orient(funcPort, funcLand);
+			});
+			
 		});
 	</script>
 </body>
