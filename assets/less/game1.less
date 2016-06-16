@@ -34,7 +34,7 @@ body {
 		text-align: center;
 		margin-left: -60px;
 		margin-top: -20px;
-		background: darken(@bgc, 80%);
+		background: darken(@bgc, 60%);
 		font-weight: bold;
 	}
 	.gameover, .gameclear {
@@ -137,20 +137,28 @@ body {
 		bottom: 0;
 		left: 0;
 		border-radius: 10px;
+		.box-miss {
+			width: 120px;
+			height: 180px;
+			background-image: url('../images/box-mc.png');
+			background-size: 120px 120px;
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
 	}
 	.item {
 		width: 40px;
 		height: 40px;
 		position: fixed;
-		z-index: 10;
+		z-index: 30;
 		top: -30px;
 		left: 0;
 		&.item0 {
-			background: url('../images/item2.png') center center no-repeat;
+			background: url('../images/item0.png') center center no-repeat;
 			background-size: 40px 40px;
 		}
 		&.item1 {
-			background: url('../images/item2.png') center center no-repeat;
+			background: url('../images/item1.png') center center no-repeat;
 			background-size: 40px 40px;
 		}
 		&.item2 {
@@ -165,8 +173,7 @@ body {
 		height: 250px;
 		bottom: -250px;
 		&#gift1 {
-			background: darken(@bgc, 15%);
-			border-radius: 125px;
+			background: url('../images/gift1.png') center top no-repeat;
 		}
 		&#gift2 {
 			background: darken(@bgc, 10%);
@@ -177,5 +184,8 @@ body {
 			border-radius: 200px;
 		}
 	}
+}
+.preload {
+	visibility: hidden;
 }
 

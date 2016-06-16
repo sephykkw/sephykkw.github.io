@@ -33,7 +33,7 @@ body {
   text-align: center;
   margin-left: -60px;
   margin-top: -20px;
-  background: #333333;
+  background: #666666;
   font-weight: bold;
 }
 .container .gameover,
@@ -138,20 +138,28 @@ body {
   left: 0;
   border-radius: 10px;
 }
+.container .box .box-miss {
+  width: 120px;
+  height: 180px;
+  background-image: url('../images/box-mc.png');
+  background-size: 120px 120px;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
 .container .item {
   width: 40px;
   height: 40px;
   position: fixed;
-  z-index: 10;
+  z-index: 30;
   top: -30px;
   left: 0;
 }
 .container .item.item0 {
-  background: url('../images/item2.png') center center no-repeat;
+  background: url('../images/item0.png') center center no-repeat;
   background-size: 40px 40px;
 }
 .container .item.item1 {
-  background: url('../images/item2.png') center center no-repeat;
+  background: url('../images/item1.png') center center no-repeat;
   background-size: 40px 40px;
 }
 .container .item.item2 {
@@ -166,8 +174,7 @@ body {
   bottom: -250px;
 }
 .container .gift#gift1 {
-  background: #d9d9d9;
-  border-radius: 125px;
+  background: url('../images/gift1.png') center top no-repeat;
 }
 .container .gift#gift2 {
   background: #e6e6e6;
@@ -176,4 +183,7 @@ body {
 .container .gift#gift3 {
   background: #dedede;
   border-radius: 200px;
+}
+.preload {
+  visibility: hidden;
 }
