@@ -7,7 +7,7 @@
 		var container = $(this);
 		options = $.extend({
 			iMax: 1000,
-			iWidth: 30,
+			iWidth: 40,
 			bMgLeft: 10,
 			bMgRight: 10,
 			bMgBottom: 105,
@@ -110,6 +110,12 @@
 						return;
 					}
 				} else {
+					var src1 = $('.box').css('backgroundImage');
+					var src2 = src1.replace('gif', 'png');
+					$('.box').css('backgroundImage', src2);
+					setTimeout(function() {
+						$('.box').css('backgroundImage', src1);
+					}, 1000);
 					var missSpd  = ( (options.bMgBottom) / (options.wHeight - options.iWidth - options.bMgBottom) ) * thisSpd / 2;
 					missCount--;
 					appendTip('miss');

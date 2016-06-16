@@ -109,13 +109,13 @@ body {
   opacity: 0.8;
 }
 .container .tip.tip-perfect {
-  color: #ffffff;
+  color: #666666;
 }
 .container .tip.tip-great {
-  color: #ffffff;
+  color: #8c8c8c;
 }
 .container .tip.tip-miss {
-  color: #ffffff;
+  color: #b3b3b3;
 }
 .container .ground {
   display: none;
@@ -128,8 +128,10 @@ body {
   display: none;
   width: 120px;
   height: 180px;
-  background: url('../images/box-mc.gif') center top no-repeat;
+  background-image: url('../images/box-mc.gif');
   background-size: 120px 120px;
+  background-repeat: no-repeat;
+  background-position: center top;
   position: fixed;
   z-index: 20;
   bottom: 0;
@@ -137,22 +139,24 @@ body {
   border-radius: 10px;
 }
 .container .item {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 40px;
+  height: 40px;
   position: fixed;
   z-index: 10;
   top: -30px;
   left: 0;
 }
 .container .item.item0 {
-  background: #ffffff;
+  background: url('../images/item2.png') center center no-repeat;
+  background-size: 40px 40px;
 }
 .container .item.item1 {
-  background: #cccccc;
+  background: url('../images/item2.png') center center no-repeat;
+  background-size: 40px 40px;
 }
 .container .item.item2 {
-  background: #ffffff;
+  background: url('../images/item2.png') center center no-repeat;
+  background-size: 40px 40px;
 }
 .container .gift {
   position: fixed;

@@ -108,13 +108,13 @@ body {
 		text-shadow: 0 0 3px @mainc;
 		opacity: 0.8;
 		&.tip-perfect {
-			color: lighten(@bgc, 20%);
+			color: darken(@bgc, 60%);
 		}
 		&.tip-great {
-			color: lighten(@bgc, 15%);
+			color: darken(@bgc, 45%);
 		}
 		&.tip-miss {
-			color: lighten(@bgc, 10%);
+			color: darken(@bgc, 30%);
 		}
 	}
 	.ground {
@@ -128,8 +128,10 @@ body {
 		display: none;
 		width: 120px;
 		height: 180px;
-		background: url('../images/box-mc.gif') center top no-repeat;
+		background-image: url('../images/box-mc.gif');
 		background-size: 120px 120px;
+		background-repeat: no-repeat;
+		background-position: center top;
 		position: fixed;
 		z-index: 20;
 		bottom: 0;
@@ -137,21 +139,23 @@ body {
 		border-radius: 10px;
 	}
 	.item {
-		width: 30px;
-		height: 30px;
-		border-radius: 15px;
+		width: 40px;
+		height: 40px;
 		position: fixed;
 		z-index: 10;
 		top: -30px;
 		left: 0;
 		&.item0 {
-			background: @mainc;
+			background: url('../images/item2.png') center center no-repeat;
+			background-size: 40px 40px;
 		}
 		&.item1 {
-			background: darken(@mainc, 20%)
+			background: url('../images/item2.png') center center no-repeat;
+			background-size: 40px 40px;
 		}
 		&.item2 {
-			background: lighten(@mainc, 30%)
+			background: url('../images/item2.png') center center no-repeat;
+			background-size: 40px 40px;
 		}
 	}
 	.gift {
