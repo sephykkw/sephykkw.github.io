@@ -1,5 +1,5 @@
-@bgc: #F78F8F;
-@mainc: #DE5060;
+@bgc: #FFF;
+@mainc: #FFF;
 @boxc: #FFCFD4;
 
 * {
@@ -34,7 +34,7 @@ body {
 		text-align: center;
 		margin-left: -60px;
 		margin-top: -20px;
-		background: darken(@bgc, 10%);
+		background: darken(@bgc, 80%);
 		font-weight: bold;
 	}
 	.gameover, .gameclear {
@@ -62,7 +62,7 @@ body {
 		padding: 15px;
 		z-index: 30;
 		opacity: 0.9;
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(0, 0, 0, 0.8);
 		color: @mainc;
 		width: 100%;
 		font-weight: bold;
@@ -89,7 +89,7 @@ body {
 		top: 60px;
 		right: 15px;
 		color: lighten(@bgc, 15%);
-		background: darken(@bgc, 5%);
+		background: darken(@bgc, 50%);
 		border: 2px solid lighten(@bgc, 15%);
 		border-radius: 9px;
 		text-align: center;
@@ -117,11 +117,18 @@ body {
 			color: lighten(@bgc, 10%);
 		}
 	}
+	.ground {
+		display: none;
+		width: 100%;
+		border-top: 2px solid darken(@bgc, 50%);
+		position: fixed;
+		bottom: 70px;
+	}
 	.box {
 		display: none;
 		width: 120px;
-		height: 120px;
-		background: url('../images/box-mc.png') no-repeat;
+		height: 180px;
+		background: url('../images/box-mc.gif') center top no-repeat;
 		background-size: 120px 120px;
 		position: fixed;
 		z-index: 20;

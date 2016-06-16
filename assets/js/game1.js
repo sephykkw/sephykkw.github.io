@@ -10,7 +10,7 @@
 			iWidth: 30,
 			bMgLeft: 10,
 			bMgRight: 10,
-			bMgBottom: 45,
+			bMgBottom: 105,
 			bWidth: 100,
 			perfectB: 20,
 			greatB: 10,
@@ -64,11 +64,13 @@
 			html += '<div class="gameclear">GAME CLEAR</div>';
 			html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="box"></div>';
+			html += '<div class="ground"></div>';
 			container.append(html);
 		  $('.start').delay(500).fadeIn(300);
 		}
 		function loadGame() {
 			$('.box').css('left', (options.wWidth - options.bWidth - options.bMgLeft - options.bMgRight) / 2 + 'px').fadeIn(500);
+			$('.ground').fadeIn(500);
 			setTimeout(createItem, 2000);
 		}
 		function resetData() {
@@ -131,7 +133,7 @@
 		}
 		function clearGame() {
 			$('.tip, .item').stop(true).remove();
-			$('.box').hide();
+			$('.box, .ground').hide();
 			container.removeClass('active');
 			if (level < options.target.length - 1) {
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
@@ -149,7 +151,7 @@
 		}
 		function finishGame() {
 			$('.tip, .item').stop(true).remove();
-			$('.box').hide();
+			$('.box, .ground').hide();
 			$('.goscore').html(score);
 			$('.gameover').show();
 			$('.start').html('RETRY').show();

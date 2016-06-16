@@ -9,12 +9,12 @@ body {
   height: 100%;
 }
 body {
-  background: #f78f8f;
+  background: #ffffff;
 }
 .container {
   width: 100%;
   height: 100%;
-  background: #f78f8f;
+  background: #ffffff;
 }
 .container .start,
 .container .next {
@@ -24,7 +24,7 @@ body {
   width: 120px;
   height: 45px;
   border-radius: 10px;
-  color: #fcd6d6;
+  color: #ffffff;
   top: 50%;
   left: 50%;
   font-size: 20px;
@@ -33,7 +33,7 @@ body {
   text-align: center;
   margin-left: -60px;
   margin-top: -20px;
-  background: #f45f5f;
+  background: #333333;
   font-weight: bold;
 }
 .container .gameover,
@@ -53,7 +53,7 @@ body {
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 25px;
-  color: #de5060;
+  color: #ffffff;
   border-radius: 10px;
 }
 .container .bar {
@@ -62,8 +62,8 @@ body {
   padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: rgba(255, 255, 255, 0.8);
-  color: #de5060;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
   width: 100%;
   font-weight: bold;
   font-size: 20px;
@@ -79,7 +79,7 @@ body {
   z-index: 50;
   opacity: 0.9;
   text-align: left;
-  color: #de5060;
+  color: #ffffff;
   font-size: 14px;
   line-height: 20px;
 }
@@ -88,9 +88,9 @@ body {
   z-index: 50;
   top: 60px;
   right: 15px;
-  color: #fcd6d6;
-  background: #f57777;
-  border: 2px solid #fcd6d6;
+  color: #ffffff;
+  background: #808080;
+  border: 2px solid #ffffff;
   border-radius: 9px;
   text-align: center;
   width: 25px;
@@ -105,23 +105,30 @@ body {
   width: 100%;
   text-align: center;
   font-size: 70px;
-  text-shadow: 0 0 3px #de5060;
+  text-shadow: 0 0 3px #ffffff;
   opacity: 0.8;
 }
 .container .tip.tip-perfect {
-  color: #feeeee;
+  color: #ffffff;
 }
 .container .tip.tip-great {
-  color: #fcd6d6;
+  color: #ffffff;
 }
 .container .tip.tip-miss {
-  color: #fabfbf;
+  color: #ffffff;
+}
+.container .ground {
+  display: none;
+  width: 100%;
+  border-top: 2px solid #808080;
+  position: fixed;
+  bottom: 70px;
 }
 .container .box {
   display: none;
   width: 120px;
-  height: 120px;
-  background: url('../images/box-mc.png') no-repeat;
+  height: 180px;
+  background: url('../images/box-mc.gif') center top no-repeat;
   background-size: 120px 120px;
   position: fixed;
   z-index: 20;
@@ -139,13 +146,13 @@ body {
   left: 0;
 }
 .container .item.item0 {
-  background: #de5060;
+  background: #ffffff;
 }
 .container .item.item1 {
-  background: #a8202f;
+  background: #cccccc;
 }
 .container .item.item2 {
-  background: #f6d1d5;
+  background: #ffffff;
 }
 .container .gift {
   position: fixed;
@@ -155,14 +162,14 @@ body {
   bottom: -250px;
 }
 .container .gift#gift1 {
-  background: #f24848;
+  background: #d9d9d9;
   border-radius: 125px;
 }
 .container .gift#gift2 {
-  background: #f45f5f;
+  background: #e6e6e6;
   border-radius: 200px;
 }
 .container .gift#gift3 {
-  background: #f35151;
+  background: #dedede;
   border-radius: 200px;
 }
