@@ -119,9 +119,10 @@ body {
 }
 .container .box {
   display: none;
-  width: 80px;
-  height: 80px;
-  background: #ffcfd4;
+  width: 120px;
+  height: 120px;
+  background: url('../images/box-mc.png') no-repeat;
+  background-size: 120px 120px;
   position: fixed;
   z-index: 20;
   bottom: 0;
