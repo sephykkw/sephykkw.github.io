@@ -29,6 +29,7 @@
 			
 			orient(funcPort, funcLand);
 			$(window).on( 'orientationchange', function(e){
+				window.location.reload();
 				orient(funcPort, funcLand);
 			});
 			
