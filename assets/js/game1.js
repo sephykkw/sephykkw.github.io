@@ -8,16 +8,18 @@
 		options = $.extend({
 			iMax: 1000,
 			iWidth: 40,
-			bMgLeft: 10,
-			bMgRight: 10,
+			bMgLeft: 30,
+			bMgRight: 30,
 			bMgBottom: 85,
+			bPdLeft: 10,
+			bPdRight: 50,
 			bWidth: 100,
 			perfectB: 20,
 			greatB: 10,
 			missMax: 5,
 			target: [0, 500, 600, 700],
-			createSpd: [0, 750, 700, 650],
-			fallSpd: [0, 900, 850, 800],
+			createSpd: [0, 650, 600, 550],
+			fallSpd: [0, 800, 750, 700],
 			wWidth: $(window).width(),
 			wHeight: $(window).height()
 		}, options);
@@ -69,7 +71,7 @@
 		  $('.start').delay(500).fadeIn(300);
 		}
 		function loadGame() {
-			$('.box').css('left', (options.wWidth - options.bWidth - options.bMgLeft - options.bMgRight) / 2 + 'px').fadeIn(500);
+			$('.box').css('left', (options.wWidth - options.bWidth) / 2 + 'px').fadeIn(500);
 			$('.ground').fadeIn(500);
 			setTimeout(createItem, 2000);
 		}
@@ -84,33 +86,52 @@
 			$('.level').html(level);
 		}
 		function createItem() {
-			var html = '<div class="item item' + randItem() + '" id="i' + toId(iCount) + '"></div>';
+			var itemClass = randItem();
+			var html = '<div class="item item' + itemClass + '" id="i' + toId(iCount) + '"></div>';
 			container.append(html);
 			var $this = $('#i' + toId(iCount));
 			$this.css('left', randX());
 			var thisSpd = randFallSpd();
 			$this.animate({'top': options.wHeight - options.iWidth - options.bMgBottom + 'px'}, {duration: thisSpd, easing: 'easeInSine', complete: function() {
 				var iP = $this.offset().left + options.iWidth / 2;
-				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth + options.bMgLeft + options.bMgRight) {
-					if (iP > $('.box').offset().left + options.bMgLeft && iP < $('.box').offset().left + options.bMgLeft + options.bWidth) {
-						score += options.perfectB;
-						appendTip('perfect');
+				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth) {
+					if (!itemClass) {
+						if(!$('.box').html()) {
+							$('.box').append('<div class="box-miss"></div>');
+						}
+						setTimeout(function() {
+							if($('.box').html()) {
+								$('.box').html('');
+							}
+						}, 1000);
+						appendTip('bomb');
+						$this.animate({'top': options.wHeight - options.iWidth + 'px'}, missSpd, 'linear', function() {
+							$this.animate({'opacity': '0'}, 500);
+							setTimeout(function() {
+								$this.remove();
+							}, 500);
+						});
 					} else {
-						score += options.greatB;
-						appendTip('great');
+						if (iP > $('.box').offset().left + options.bPdLeft && iP < $('.box').offset().left + options.bWidth - options.bPdRight) {
+							score += options.perfectB;
+							appendTip('perfect');
+						} else {
+							score += options.greatB;
+							appendTip('great');
+						}
+						$('.score').html(score);
+						$this.animate({'opacity': '0'}, 500);
+						setTimeout(function() {
+							$this.remove();
+						}, 500);
+						if(score > options.target[level]) {
+							clearTimeout(t);
+							clearGame();
+							return;
+						}
 					}
-					$('.score').html(score);
-					$this.animate({'opacity': '0'}, 500);
-					setTimeout(function() {
-						$this.remove();
-					}, 500);
-					if(score > options.target[level]) {
-						clearTimeout(t);
-						clearGame();
-						return;
-					}
-				} else {
-					
+				} 
+				else {
 					if(!$('.box').html()) {
 						$('.box').append('<div class="box-miss"></div>');
 					}
@@ -189,10 +210,10 @@
 			return Math.floor(Math.random() * 500) + options.createSpd[level];
 		}
 		function randItem() {
-			return Math.floor(Math.random() * 3);
+			return Math.floor(Math.random() * 4);
 		}
 		function randX() {
-			return (Math.floor(Math.random() * (options.wWidth - options.iWidth - options.bMgRight - options.bMgLeft)) + options.iWidth / 2 + options.bMgLeft) + 'px';
+			return (Math.floor(Math.random() * (options.wWidth - options.iWidth - options.bMgRight - options.bMgLeft)) + options.bMgLeft) + 'px';
 		}
 		function randFallSpd() {
 			return Math.floor(Math.random() * 500) + options.fallSpd[level];

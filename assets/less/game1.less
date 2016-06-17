@@ -1,5 +1,5 @@
 @bgc: #FFF;
-@mainc: #FFF;
+@mainc: #000;
 @boxc: #FFCFD4;
 
 * {
@@ -25,7 +25,7 @@ body {
 		width: 120px;
 		height: 45px;
 		border-radius: 10px;
-		color: lighten(@bgc, 15%);
+		color: @bgc;
 		top: 50%;
 		left: 50%;
 		font-size: 20px;
@@ -34,14 +34,14 @@ body {
 		text-align: center;
 		margin-left: -60px;
 		margin-top: -20px;
-		background: darken(@bgc, 60%);
+		background: lighten(@mainc, 40%);
 		font-weight: bold;
 	}
 	.gameover, .gameclear {
 		display: none;
 		position: fixed;
 		z-index: 80;
-		background: rgba(255, 255, 255, 0.6);
+		background: lighten(@mainc, 40%);
 		width: 200px;
 		height: 140px;
 		padding: 15px;
@@ -53,7 +53,7 @@ body {
 		font-size: 20px;
 		letter-spacing: 1px;
 		line-height: 25px;
-		color: @mainc;
+		color: @bgc;
 		border-radius: 10px;
 	}
 	.bar {
@@ -62,8 +62,8 @@ body {
 		padding: 15px;
 		z-index: 30;
 		opacity: 0.9;
-		background: rgba(0, 0, 0, 0.8);
-		color: @mainc;
+		background: lighten(@mainc, 20%);
+		color: @bgc;
 		width: 100%;
 		font-weight: bold;
 		font-size: 20px;
@@ -79,7 +79,7 @@ body {
 		z-index: 50;
 		opacity: 0.9;
 		text-align: left;
-		color: @mainc;
+		color: @bgc;
 		font-size: 14px;
 		line-height: 20px;
 	}
@@ -88,9 +88,9 @@ body {
 		z-index: 50;
 		top: 60px;
 		right: 15px;
-		color: lighten(@bgc, 15%);
-		background: darken(@bgc, 50%);
-		border: 2px solid lighten(@bgc, 15%);
+		color: @bgc;
+		background: lighten(@mainc, 50%);
+		border: 2px solid lighten(@mainc, 20%);
 		border-radius: 9px;
 		text-align: center;
 		width: 25px;
@@ -105,22 +105,25 @@ body {
 		width: 100%;
 		text-align: center;
 		font-size: 70px;
-		text-shadow: 0 0 3px @mainc;
+		text-shadow: 0 0 3px lighten(@mainc, 80%);
 		opacity: 0.8;
 		&.tip-perfect {
-			color: darken(@bgc, 60%);
+			color: lighten(@mainc, 40%);
 		}
 		&.tip-great {
-			color: darken(@bgc, 45%);
+			color: lighten(@mainc, 55%);
 		}
 		&.tip-miss {
-			color: darken(@bgc, 30%);
+			color: lighten(@mainc, 70%);
+		}
+		&.tip-miss {
+			color: lighten(@mainc, 40%);
 		}
 	}
 	.ground {
 		display: none;
 		width: 100%;
-		border-top: 2px solid darken(@bgc, 50%);
+		border-top: 2px solid lighten(@mainc, 50%);
 		position: fixed;
 		bottom: 70px;
 	}
@@ -154,7 +157,8 @@ body {
 		top: -30px;
 		left: 0;
 		&.item0 {
-			background: url('../images/item0.png') center center no-repeat;
+			background: @mainc;
+			border-radius: 40px;
 			background-size: 40px 40px;
 		}
 		&.item1 {
@@ -163,6 +167,10 @@ body {
 		}
 		&.item2 {
 			background: url('../images/item2.png') center center no-repeat;
+			background-size: 40px 40px;
+		}
+		&.item3 {
+			background: url('../images/item3.png') center center no-repeat;
 			background-size: 40px 40px;
 		}
 	}
