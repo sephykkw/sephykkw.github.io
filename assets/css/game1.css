@@ -33,7 +33,7 @@ body {
   text-align: center;
   margin-left: -60px;
   margin-top: -20px;
-  background: #666666;
+  background: #cba58a;
   font-weight: bold;
 }
 .container .gameover,
@@ -41,7 +41,7 @@ body {
   display: none;
   position: fixed;
   z-index: 80;
-  background: #b3b3b3;
+  background: #eadbd1;
   width: 200px;
   height: 140px;
   padding: 15px;
@@ -62,7 +62,7 @@ body {
   padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: #333333;
+  background: #c39778;
   color: #ffffff;
   width: 100%;
   font-weight: bold;
@@ -89,8 +89,8 @@ body {
   top: 60px;
   right: 15px;
   color: #ffffff;
-  background: #808080;
-  border: 2px solid #333333;
+  background: #cba58a;
+  border: 2px solid #eadbd1;
   border-radius: 9px;
   text-align: center;
   width: 25px;
@@ -105,25 +105,25 @@ body {
   width: 100%;
   text-align: center;
   font-size: 70px;
-  text-shadow: 0 0 3px #cccccc;
+  text-shadow: 0 0 3px #eadbd1;
   opacity: 0.8;
 }
 .container .tip.tip-perfect {
-  color: #666666;
+  color: #cba58a;
 }
 .container .tip.tip-great {
-  color: #8c8c8c;
+  color: #d3b39b;
 }
 .container .tip.tip-miss {
-  color: #b3b3b3;
+  color: #dbc0ad;
 }
-.container .tip.tip-miss {
-  color: #666666;
+.container .tip.tip-bomb {
+  color: #cba58a;
 }
 .container .ground {
   display: none;
   width: 100%;
-  border-top: 2px solid #808080;
+  border-top: 2px solid #cba58a;
   position: fixed;
   bottom: 70px;
 }
@@ -158,7 +158,7 @@ body {
   left: 0;
 }
 .container .item.item0 {
-  background: #000000;
+  background: #cba58a;
   border-radius: 40px;
   background-size: 40px 40px;
 }
@@ -185,12 +185,10 @@ body {
   background: url('../images/gift1.png') center top no-repeat;
 }
 .container .gift#gift2 {
-  background: #e6e6e6;
-  border-radius: 200px;
+  background: url('../images/gift1.png') center top no-repeat;
 }
 .container .gift#gift3 {
-  background: #dedede;
-  border-radius: 200px;
+  background: url('../images/gift1.png') center top no-repeat;
 }
 .preload {
   visibility: hidden;

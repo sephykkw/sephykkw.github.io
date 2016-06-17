@@ -13,14 +13,15 @@
 			bMgBottom: 85,
 			bPdLeft: 10,
 			bPdRight: 50,
+			bPdBottom: 70,
 			bWidth: 100,
 			perfectB: 20,
 			greatB: 10,
 			bombB: -30,
 			missMax: 5,
 			target: [0, 500, 600, 700],
-			createSpd: [0, 650, 600, 550],
-			fallSpd: [0, 800, 750, 700],
+			createSpd: [0, 550, 500, 450],
+			fallSpd: [0, 700, 650, 600],
 			wWidth: $(window).width(),
 			wHeight: $(window).height()
 		}, options);
@@ -143,7 +144,7 @@
 						missCount--;
 						appendTip('miss');
 					}
-					$this.animate({'top': options.wHeight - options.iWidth + 'px'}, missSpd, 'linear', function() {
+					$this.animate({'top': options.wHeight - options.iWidth - options.bPdBottom + 'px'}, missSpd, 'linear', function() {
 						$this.animate({'opacity': '0'}, 500);
 						setTimeout(function() {
 							$this.remove();
