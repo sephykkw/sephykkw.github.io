@@ -41,7 +41,7 @@ body {
   display: none;
   position: fixed;
   z-index: 80;
-  background: rgba(255, 255, 255, 0.6);
+  background: #666666;
   width: 200px;
   height: 140px;
   padding: 15px;
@@ -62,7 +62,7 @@ body {
   padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: rgba(0, 0, 0, 0.8);
+  background: #333333;
   color: #ffffff;
   width: 100%;
   font-weight: bold;
@@ -90,7 +90,7 @@ body {
   right: 15px;
   color: #ffffff;
   background: #808080;
-  border: 2px solid #ffffff;
+  border: 2px solid #333333;
   border-radius: 9px;
   text-align: center;
   width: 25px;
@@ -105,7 +105,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 70px;
-  text-shadow: 0 0 3px #ffffff;
+  text-shadow: 0 0 3px #cccccc;
   opacity: 0.8;
 }
 .container .tip.tip-perfect {
@@ -116,6 +116,9 @@ body {
 }
 .container .tip.tip-miss {
   color: #b3b3b3;
+}
+.container .tip.tip-miss {
+  color: #666666;
 }
 .container .ground {
   display: none;
@@ -155,7 +158,8 @@ body {
   left: 0;
 }
 .container .item.item0 {
-  background: url('../images/item0.png') center center no-repeat;
+  background: #000000;
+  border-radius: 40px;
   background-size: 40px 40px;
 }
 .container .item.item1 {
@@ -164,6 +168,10 @@ body {
 }
 .container .item.item2 {
   background: url('../images/item2.png') center center no-repeat;
+  background-size: 40px 40px;
+}
+.container .item.item3 {
+  background: url('../images/item3.png') center center no-repeat;
   background-size: 40px 40px;
 }
 .container .gift {
