@@ -16,6 +16,7 @@
 			bWidth: 100,
 			perfectB: 20,
 			greatB: 10,
+			bombB: -30,
 			missMax: 5,
 			target: [0, 500, 600, 700],
 			createSpd: [0, 650, 600, 550],
@@ -104,8 +105,10 @@
 								$('.box').html('');
 							}
 						}, 1000);
+						score += options.bombB;
 						missCount--;
 						appendTip('bomb');
+						$('.score').html(score);
 					} else {
 						if (iP > $('.box').offset().left + options.bPdLeft && iP < $('.box').offset().left + options.bWidth - options.bPdRight) {
 							score += options.perfectB;
