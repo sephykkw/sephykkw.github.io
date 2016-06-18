@@ -5,6 +5,12 @@
 	$.fn.game1 = function(options) {
 		
 		var container = $(this);
+		var audio1 = document.getElementById('audio1');
+		var audio2 = document.getElementById('audio2');
+		var audio3 = document.getElementById('audio3');
+		var audio4 = document.getElementById('audio4');
+		var audio5 = document.getElementById('audio5');
+		var audio6 = document.getElementById('audio6');
 		options = $.extend({
 			iMax: 1000,
 			iWidth: 40,
@@ -19,9 +25,9 @@
 			greatB: 10,
 			bombB: -30,
 			missMax: 5,
-			target: [0, 500, 600, 700],
-			createSpd: [0, 550, 500, 450],
-			fallSpd: [0, 700, 650, 600],
+			target: [0, 500, 600, 700, 800, 900, 1000],
+			createSpd: [0, 550, 500, 450, 450, 400, 400],
+			fallSpd: [0, 700, 650, 600, 550, 550, 500],
 			wWidth: $(window).width(),
 			wHeight: $(window).height()
 		}, options);
@@ -103,6 +109,7 @@
 				var iP = $this.offset().left + options.iWidth / 2;
 				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth) {
 					if (!itemClass) {
+						audio4.play();
 						if(!$('.box').html()) {
 							$('.box').append('<div class="box-miss"></div>');
 						}
@@ -116,6 +123,14 @@
 						appendTip('bomb');
 						$('.score').html(score);
 					} else {
+						console.log(audio1.currentTime+' '+audio2.currentTime+' '+audio3.currentTime);
+						if (audio1.currentTime==0 || audio1.ended) {
+							audio1.play();
+						} else if (audio2.currentTime==0 || audio2.ended) {
+							audio2.play();
+						} else if (audio3.currentTime==0 || audio3.ended) {
+							audio3.play();
+						}
 						if (iP > $('.box').offset().left + options.bPdLeft && iP < $('.box').offset().left + options.bWidth - options.bPdRight) {
 							score += options.perfectB;
 							appendTip('perfect');
@@ -172,6 +187,7 @@
 			$('.box, .ground').hide();
 			container.removeClass('active');
 			if (level < options.target.length - 1) {
+				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
 				var html = '<div class="gift" id="gift' + level + '"></div>';
 				container.append(html);
@@ -181,11 +197,14 @@
 					}, 1000);
 				});
 			} else {
+				audio6.play();
 				$('.gameclear').html('GAME CLEAR').show();
 				$('.start').html('RETRY').show();
 			}
 		}
 		function finishGame() {
+			var id = 'audio' + Math.floor(Math.random() * 3 + 7);
+			document.getElementById(id).play();
 			$('.tip, .item').stop(true).remove();
 			$('.box, .ground').hide();
 			$('.goscore').html(score);
