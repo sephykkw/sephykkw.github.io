@@ -32,7 +32,12 @@
 			$('.start, .gameover, .gameclear').hide();
 			level = 1;
 			resetData();
-			loadGame();
+			$('.spec').fadeIn(500);
+			setTimeout(function() {
+				$('.spec').fadeOut(500, function() {
+					loadGame();
+				})
+			}, 1500)
 		});
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
