@@ -211,7 +211,7 @@
 			return Math.floor(Math.random() * 500) + options.createSpd[level];
 		}
 		function randItem() {
-			return Math.floor(Math.random() * 4);
+			return Math.floor(Math.random() * 6);
 		}
 		function randX() {
 			return (Math.floor(Math.random() * (options.wWidth - options.iWidth - options.bMgRight - options.bMgLeft)) + options.bMgLeft) + 'px';
