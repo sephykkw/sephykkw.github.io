@@ -74,7 +74,7 @@
 		
 		function init() {
 			var html = '<div class="bar">SCORE: <span class="score">0</span></div>';
-			html += '<div class="lv">LEVEL <span class="level">1</span></div>';
+			html += '<div class="lv">lv <span class="level">1</span> : <span class="target">'+options.target[1]+'</span> pt</div>';
 			html += '<div class="miss">5</div>';
 			html += '<div class="start">START</div>';
 			html += '<div class="next">NEXT</div>';
@@ -101,6 +101,7 @@
 			$('.score').html(score);
 			$('.miss').html(missCount);
 			$('.level').html(level);
+			$('.target').html(options.target[level]);
 		}
 		function createItem() {
 			var itemClass = randItem();
