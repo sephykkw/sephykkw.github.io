@@ -11,6 +11,10 @@
 		var audio4 = document.getElementById('audio4');
 		var audio5 = document.getElementById('audio5');
 		var audio6 = document.getElementById('audio6');
+
+		var audio00 = document.getElementById('audio00');
+		audio00.play();
+
 		options = $.extend({
 			iMax: 1000,
 			iWidth: 40,
