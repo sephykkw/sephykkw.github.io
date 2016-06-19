@@ -38,8 +38,8 @@
 		
 		init();
 		$('.start').on('mouseup', function() {
-			audio00.load();
-			audio00.play();
+			audio00.load();audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();
+			
 			container.addClass('active');
 			$('.start, .gameover, .gameclear').hide();
 			level = 1;
