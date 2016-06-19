@@ -13,7 +13,7 @@
 		var audio6 = document.getElementById('audio6');
 
 		var audio00 = document.getElementById('audio00');
-		audio00.play();
+
 
 		options = $.extend({
 			iMax: 1000,
@@ -38,6 +38,8 @@
 		
 		init();
 		$('.start').on('mouseup', function() {
+			audio00.load();
+			audio00.play();
 			container.addClass('active');
 			$('.start, .gameover, .gameclear').hide();
 			level = 1;
