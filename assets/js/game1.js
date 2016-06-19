@@ -149,7 +149,7 @@
 					setTimeout(function() {
 						$this.remove();
 					}, 500);
-					if(score > options.target[level]) {
+					if(score >= options.target[level]) {
 						clearTimeout(t);
 						clearGame();
 						return;
