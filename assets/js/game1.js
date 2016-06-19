@@ -17,10 +17,10 @@
 			iWidth: 40,
 			bMgLeft: 30,
 			bMgRight: 30,
-			bMgBottom: 85,
+			bMgBottom: 90,
 			bPdLeft: 10,
 			bPdRight: 50,
-			bPdBottom: 70,
+			bPdBottom: 60,
 			bWidth: 100,
 			perfectB: 20,
 			greatB: 10,
@@ -45,7 +45,7 @@
 				$('.spec').fadeOut(500, function() {
 					loadGame();
 				})
-			}, 3000)
+			}, 3500)
 		});
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
@@ -125,7 +125,6 @@
 						appendTip('bomb');
 						$('.score').html(score);
 					} else {
-						console.log(audio1.currentTime+' '+audio2.currentTime+' '+audio3.currentTime);
 						if (audio1.currentTime==0 || audio1.ended) {
 							audio1.play();
 						} else if (audio2.currentTime==0 || audio2.ended) {
@@ -142,7 +141,8 @@
 						}
 						$('.score').html(score);
 					}
-					$this.animate({'opacity': '0'}, 500);
+					//$this.animate({'opacity': '0'}, 500);
+					$this.addClass('bgscale');
 					setTimeout(function() {
 						$this.remove();
 					}, 500);

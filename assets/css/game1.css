@@ -33,7 +33,7 @@ body {
   text-align: center;
   margin-left: -60px;
   margin-top: -20px;
-  background: #cba58a;
+  background: #f58989;
   font-weight: bold;
 }
 .container .gameover,
@@ -41,7 +41,7 @@ body {
   display: none;
   position: fixed;
   z-index: 80;
-  background: #dbc0ad;
+  background: #f9b8b8;
   width: 200px;
   height: 140px;
   padding: 15px;
@@ -62,7 +62,7 @@ body {
   padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: #c39778;
+  background: #f37272;
   color: #ffffff;
   width: 100%;
   font-weight: bold;
@@ -89,8 +89,8 @@ body {
   top: 60px;
   right: 15px;
   color: #ffffff;
-  background: #cba58a;
-  border: 2px solid #eadbd1;
+  background: #f58989;
+  border: 2px solid #fde7e7;
   border-radius: 9px;
   text-align: center;
   width: 25px;
@@ -105,33 +105,35 @@ body {
   width: 100%;
   text-align: center;
   font-size: 70px;
-  text-shadow: 0 0 3px #eadbd1;
+  text-shadow: 0 0 3px #fde7e7;
   opacity: 0.8;
 }
 .container .tip.tip-perfect {
-  color: #cba58a;
+  color: #f58989;
 }
 .container .tip.tip-great {
-  color: #d3b39b;
+  color: #f7a1a1;
 }
 .container .tip.tip-miss {
-  color: #dbc0ad;
+  color: #f9b8b8;
 }
 .container .tip.tip-bomb {
-  color: #cba58a;
+  color: #f58989;
 }
 .container .ground {
   display: none;
   width: 100%;
-  border-top: 2px solid #cba58a;
+  border-top: 2px solid #f9b8b8;
   position: fixed;
-  bottom: 70px;
+  height: 70px;
+  background: #f9b8b8;
+  bottom: 0px;
 }
 .container .box {
   display: none;
   width: 120px;
   height: 180px;
-  background-image: url('../images/box-mc.gif');
+  background-image: url('../images/box-1.gif');
   background-size: 120px 120px;
   background-repeat: no-repeat;
   background-position: center top;
@@ -144,7 +146,7 @@ body {
 .container .box .box-miss {
   width: 120px;
   height: 180px;
-  background-image: url('../images/box-mc.png');
+  background-image: url('../images/box-1.png');
   background-size: 120px 120px;
   background-repeat: no-repeat;
   background-position: center top;
@@ -208,7 +210,7 @@ body {
   top: 15%;
   left: 15%;
   right: 15%;
-  background: #eadbd1;
+  background: #fbd0d0;
   border-radius: 30px;
   padding: 30px;
 }
@@ -223,14 +225,14 @@ body {
   width: 40px;
   height: 40px;
   padding: 5px;
-  border: 2px solid #dbc0ad;
+  border: 2px solid #f9b8b8;
   background: #fff;
   border-radius: 10px;
 }
 .spec .bonus-group .text {
   float: right;
   text-align: center;
-  color: #bc8a66;
+  color: #f15a5a;
   font-weight: bold;
   line-height: 40px;
   font-size: 20px;
@@ -259,4 +261,50 @@ body {
 }
 #preload-5 {
   background: url('../images/item5.png') no-repeat -9999px -9999px;
+}
+@keyframes bgscale {
+  from {
+    background-size: 40px 40px;
+    background-position: 0px 0px;
+  }
+  to {
+    background-size: 1px 1px;
+    background-position: 20px 40px;
+  }
+}
+@-webkit-keyframes bgscale {
+  from {
+    background-size: 40px 40px;
+    background-position: 0px 0px;
+  }
+  to {
+    background-size: 1px 1px;
+    background-position: 20px 40px;
+  }
+}
+@-moz-keyframes bgscale {
+  from {
+    background-size: 40px 40px;
+    background-position: 0px 0px;
+  }
+  to {
+    background-size: 1px 1px;
+    background-position: 20px 40px;
+  }
+}
+@-o-keyframes bgscale {
+  from {
+    background-size: 40px 40px;
+    background-position: 0px 0px;
+  }
+  to {
+    background-size: 1px 1px;
+    background-position: 20px 40px;
+  }
+}
+.bgscale {
+  animation: bgscale 2s;
+  -webkit-animation: bgscale 2s;
+  -moz-animation: bgscale 2s;
+  -o-animation: bgscale 2s;
 }

@@ -1,5 +1,5 @@
 @bgc: #FFF;
-@mainc: #5f402a;
+@mainc: #a40e0e;
 @boxc: #FFCFD4;
 
 * {
@@ -123,15 +123,17 @@ body {
 	.ground {
 		display: none;
 		width: 100%;
-		border-top: 2px solid lighten(@mainc, 40%);
+		border-top: 2px solid lighten(@mainc, 50%);
 		position: fixed;
-		bottom: 70px;
+		height: 70px;
+		background: lighten(@mainc, 50%);
+		bottom: 0px;
 	}
 	.box {
 		display: none;
 		width: 120px;
 		height: 180px;
-		background-image: url('../images/box-mc.gif');
+		background-image: url('../images/box-1.gif');
 		background-size: 120px 120px;
 		background-repeat: no-repeat;
 		background-position: center top;
@@ -143,7 +145,7 @@ body {
 		.box-miss {
 			width: 120px;
 			height: 180px;
-			background-image: url('../images/box-mc.png');
+			background-image: url('../images/box-1.png');
 			background-size: 120px 120px;
 			background-repeat: no-repeat;
 			background-position: center top;
@@ -205,7 +207,7 @@ body {
 	top: 15%;
 	left: 15%;
 	right: 15%;
-	background: lighten(@mainc, 60%);
+	background: lighten(@mainc, 55%);
 	border-radius: 30px;
 	padding: 30px;
 	.bonus-group {
@@ -234,7 +236,9 @@ body {
 		}
 	}
 }
+
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
 #preload-0 {
 	background: url('../images/item0.png') no-repeat -9999px -9999px;
 }
@@ -252,4 +256,31 @@ body {
 }
 #preload-5 {
 	background: url('../images/item5.png') no-repeat -9999px -9999px;
+}
+
+@keyframes bgscale
+{
+from {background-size: 40px 40px; background-position: 0px 0px;}
+to {background-size: 1px 1px; background-position: 20px 40px;}
+}
+@-webkit-keyframes bgscale
+{
+from {background-size: 40px 40px; background-position: 0px 0px;}
+to {background-size: 1px 1px; background-position: 20px 40px;}
+}
+@-moz-keyframes bgscale
+{
+from {background-size: 40px 40px; background-position: 0px 0px;}
+to {background-size: 1px 1px; background-position: 20px 40px;}
+}
+@-o-keyframes bgscale
+{
+from {background-size: 40px 40px; background-position: 0px 0px;}
+to {background-size: 1px 1px; background-position: 20px 40px;}
+}
+.bgscale {
+	animation: bgscale 2s;
+	-webkit-animation: bgscale 2s;
+	-moz-animation: bgscale 2s;
+	-o-animation: bgscale 2s;
 }
