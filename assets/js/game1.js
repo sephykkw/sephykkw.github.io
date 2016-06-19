@@ -12,9 +12,6 @@
 		var audio5 = document.getElementById('audio5');
 		var audio6 = document.getElementById('audio6');
 
-		var audio00 = document.getElementById('audio00');
-
-
 		options = $.extend({
 			iMax: 1000,
 			iWidth: 40,
@@ -38,10 +35,9 @@
 		
 		init();
 		$('.start').on('mouseup', function() {
-			audio00.load();audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();
-			
+			audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();
 			container.addClass('active');
-			$('.start, .gameover, .gameclear').hide();
+			$('.start, .gameover, .gameclear').fadeOut(500);
 			level = 1;
 			resetData();
 			$('.spec').fadeIn(500);
@@ -49,7 +45,7 @@
 				$('.spec').fadeOut(500, function() {
 					loadGame();
 				})
-			}, 1500)
+			}, 3000)
 		});
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
