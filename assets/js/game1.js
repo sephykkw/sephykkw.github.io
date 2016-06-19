@@ -80,7 +80,7 @@
 			html += '<div class="next">NEXT</div>';
 			html += '<div class="gameclear">GAME CLEAR</div>';
 			html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
-			html += '<div class="box"></div>';
+			html += '<div class="box"><div class="box-miss"></div></div>';
 			html += '<div class="ground"></div>';
 			container.append(html);
 		  $('.start').delay(500).fadeIn(300);
@@ -96,6 +96,8 @@
 			score = 0;
 			diff = 0;
 			missCount = options.missMax;
+			$('.box').css('backgroundImage', 'url("./assets/images/box-'+level+'.gif")');
+			$('.box-miss').css('backgroundImage', 'url("./assets/images/box-'+level+'.png")');
 			$('.score').html(score);
 			$('.miss').html(missCount);
 			$('.level').html(level);
@@ -112,12 +114,12 @@
 				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth) {
 					if (!itemClass) {
 						audio4.play();
-						if(!$('.box').html()) {
-							$('.box').append('<div class="box-miss"></div>');
+						if($('.box-miss').css('display') == 'none') {
+							$('.box-miss').show();
 						}
 						setTimeout(function() {
-							if($('.box').html()) {
-								$('.box').html('');
+							if($('.box-miss').css('display') != 'none') {
+								$('.box-miss').hide();
 							}
 						}, 1000);
 						score += options.bombB;
@@ -141,8 +143,8 @@
 						}
 						$('.score').html(score);
 					}
-					//$this.animate({'opacity': '0'}, 500);
-					$this.addClass('bgscale');
+					//$this.addClass('bgscale');
+					$this.hide();
 					setTimeout(function() {
 						$this.remove();
 					}, 500);
@@ -154,12 +156,12 @@
 				} 
 				else {
 					if (itemClass) {
-						if(!$('.box').html()) {
-							$('.box').append('<div class="box-miss"></div>');
+						if($('.box-miss').css('display') == 'none') {
+							$('.box-miss').show();
 						}
 						setTimeout(function() {
-							if($('.box').html()) {
-								$('.box').html('');
+							if($('.box-miss').css('display') != 'none') {
+								$('.box-miss').hide();
 							}
 						}, 1000);
 						var missSpd  = ( (options.bMgBottom) / (options.wHeight - options.iWidth - options.bMgBottom) ) * thisSpd / 2;
@@ -167,7 +169,8 @@
 						appendTip('miss');
 					}
 					$this.animate({'top': options.wHeight - options.iWidth - options.bPdBottom + 'px'}, missSpd, 'linear', function() {
-						$this.animate({'opacity': '0'}, 500);
+						//$this.animate({'opacity': '0'}, 500);
+						$this.hide();
 						setTimeout(function() {
 							$this.remove();
 						}, 500);

@@ -144,6 +144,7 @@ body {
   border-radius: 10px;
 }
 .container .box .box-miss {
+  display: none;
   width: 120px;
   height: 180px;
   background-image: url('../images/box-1.png');
@@ -261,50 +262,4 @@ body {
 }
 #preload-5 {
   background: url('../images/item5.png') no-repeat -9999px -9999px;
-}
-@keyframes bgscale {
-  from {
-    background-size: 40px 40px;
-    background-position: 0px 0px;
-  }
-  to {
-    background-size: 1px 1px;
-    background-position: 20px 40px;
-  }
-}
-@-webkit-keyframes bgscale {
-  from {
-    background-size: 40px 40px;
-    background-position: 0px 0px;
-  }
-  to {
-    background-size: 1px 1px;
-    background-position: 20px 40px;
-  }
-}
-@-moz-keyframes bgscale {
-  from {
-    background-size: 40px 40px;
-    background-position: 0px 0px;
-  }
-  to {
-    background-size: 1px 1px;
-    background-position: 20px 40px;
-  }
-}
-@-o-keyframes bgscale {
-  from {
-    background-size: 40px 40px;
-    background-position: 0px 0px;
-  }
-  to {
-    background-size: 1px 1px;
-    background-position: 20px 40px;
-  }
-}
-.bgscale {
-  animation: bgscale 2s;
-  -webkit-animation: bgscale 2s;
-  -moz-animation: bgscale 2s;
-  -o-animation: bgscale 2s;
 }
