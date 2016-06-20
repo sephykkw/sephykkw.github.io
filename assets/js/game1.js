@@ -22,10 +22,10 @@
 			bPdRight: 50,
 			bPdBottom: 60,
 			bWidth: 100,
-			perfectB: 80,
-			greatB: 80,
+			perfectB: 500,
+			greatB: 10,
 			bombB: -30,
-			missMax: 9,
+			missMax: 5,
 			target: [0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500],
 			createSpd: [0, 550, 500, 450, 450, 400, 400, 550, 500, 450, 450],
 			fallSpd: [0, 700, 650, 600, 550, 550, 500, 700, 650, 600, 550],
@@ -37,7 +37,7 @@
 		$('.start').on('mouseup', function() {
 			audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();
 			container.addClass('active');
-			$('.start, .gameover, .gameclear').fadeOut(500);
+			$('.start, .gameover, .gameclear, .circle').fadeOut(500);
 			level = 1;
 			resetData();
 			$('.spec').fadeIn(500);
@@ -49,7 +49,7 @@
 		});
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
-			$('.next, .gameclear').hide();
+			$('.next, .gameclear, .circle').hide();
 			$('.gift').animate({bottom: '-250px'}, 500);
 			setTimeout(function() {
 				level++;
@@ -82,6 +82,8 @@
 			html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="box"><div class="box-miss"></div></div>';
 			html += '<div class="ground"></div>';
+			html += '<div class="circle-clear circle"></div>';
+			html += '<div class="circle-over circle"></div>';
 			container.append(html);
 		  $('.start').delay(500).fadeIn(300);
 		}
@@ -98,6 +100,8 @@
 			missCount = options.missMax;
 			$('.box').css('backgroundImage', 'url("./assets/images/box-'+level+'.gif")');
 			$('.box-miss').css('backgroundImage', 'url("./assets/images/box-'+level+'.png")');
+			$('.circle-clear').css('backgroundImage', 'url("./assets/images/box-'+level+'.gif")');
+			$('.circle-over').css('backgroundImage', 'url("./assets/images/box-'+level+'.png")');
 			$('.score').html(score);
 			$('.miss').html(missCount);
 			$('.level').html(level);
@@ -144,7 +148,6 @@
 						}
 						$('.score').html(score);
 					}
-					//$this.addClass('bgscale');
 					$this.hide();
 					setTimeout(function() {
 						$this.remove();
@@ -195,17 +198,24 @@
 			if (level < options.target.length - 1) {
 				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
-				var html = '<div class="gift" id="gift' + level + '"></div>';
-				container.append(html);
-				$('#gift' + level).delay(600).animate({bottom: '-180px'}, 1000).delay(300).animate({bottom: '-220px'}, 70).delay(100).animate({bottom: 0}, 300).animate({bottom: '-20px'}, 50, function() {
-					setTimeout(function() {
-						$('.next').fadeIn(300);
-					}, 1000);
-				});
+				$('.circle-clear').delay(300).fadeIn(1000);
+				setTimeout(function() {
+					$('.next').fadeIn(300);
+				}, 1000);
+				//var html = '<div class="gift" id="gift' + level + '"></div>';
+				//container.append(html);
+				//$('#gift' + level).delay(600).animate({bottom: '-180px'}, 1000).delay(300).animate({bottom: '-220px'}, 70).delay(100).animate({bottom: 0}, 300).animate({bottom: '-20px'}, 50, function() {
+				//	setTimeout(function() {
+				//		$('.next').fadeIn(300);
+				//	}, 1000);
+				//});
 			} else {
 				audio6.play();
 				$('.gameclear').html('GAME CLEAR').show();
-				$('.start').html('RETRY').show();
+				$('.circle-clear').delay(300).fadeIn(1000);
+				setTimeout(function() {
+					$('.start').html('RETRY').show();
+				}, 1000);
 			}
 		}
 		function finishGame() {
@@ -215,7 +225,10 @@
 			$('.box, .ground').hide();
 			$('.goscore').html(score);
 			$('.gameover').show();
-			$('.start').html('RETRY').show();
+			$('.circle-over').delay(300).fadeIn(1000);
+			setTimeout(function() {
+				$('.start').html('RETRY').show();
+			}, 1000);
 			container.removeClass('active');
 		}
 		function appendTip(rank) {
