@@ -22,7 +22,7 @@
 			bPdRight: 50,
 			bPdBottom: 60,
 			bWidth: 100,
-			perfectB: 500,
+			perfectB: 20,
 			greatB: 10,
 			bombB: -30,
 			missMax: 5,
