@@ -122,6 +122,13 @@
 				if (iP > $('.box').offset().left && iP < $('.box').offset().left + options.bWidth) {
 					if (!itemClass) {
 						audio4.play();
+						$this.css('backgroundImage', 'url("./assets/images/item00.png")').animate({
+							'opacity': '0',
+							'width': '80px',
+							'height': '80px',
+							'top': '-=20px',
+							'left': '-=20px'
+						}, 500);
 						if($('.box-miss').css('display') == 'none') {
 							$('.box-miss').show();
 						}
@@ -150,8 +157,8 @@
 							appendTip('great');
 						}
 						$('.score').html(score);
+						$this.hide();
 					}
-					$this.hide();
 					setTimeout(function() {
 						$this.remove();
 					}, 500);

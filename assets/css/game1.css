@@ -183,8 +183,10 @@ body {
   left: 0;
 }
 .container .item.item0 {
-  background: url('../images/item0.png') center center no-repeat;
-  background-size: 40px 40px;
+  background-image: url('../images/item0.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .container .item.item1 {
   background: url('../images/item1.png') center center no-repeat;
