@@ -199,6 +199,8 @@
 				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
 				$('.circle-clear').delay(300).fadeIn(1000);
+				$('#preload-box').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.gif")');
+				$('#preload-box-miss').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.png")');
 				setTimeout(function() {
 					$('.next').fadeIn(300);
 				}, 1000);

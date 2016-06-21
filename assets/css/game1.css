@@ -289,3 +289,11 @@ body {
 #preload-5 {
   background: url('../images/item5.png') no-repeat -9999px -9999px;
 }
+#preload-box {
+  background-image: url('../images/box-1.gif');
+  background-position: -9999px -9999px;
+}
+#preload-box-miss {
+  background-image: url('../images/box-1.png');
+  background-position: -9999px -9999px;
+}
