@@ -1,6 +1,6 @@
 (function ($) {
 
-	var t, iCount, score, missCount, diff, tCount, level;
+	var t, iCount, score, missCount, diff, tCount, level, isMute;
 	
 	$.fn.game1 = function(options) {
 		
@@ -35,7 +35,7 @@
 		
 		init();
 		$('.start').on('mouseup', function() {
-			audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();
+			audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();audiobgm.load();
 			container.addClass('active');
 			$('.start, .gameover, .gameclear, .circle').fadeOut(500);
 			level = 1;
@@ -43,6 +43,9 @@
 			$('.spec').fadeIn(500);
 			setTimeout(function() {
 				$('.spec').fadeOut(500, function() {
+					if ($('.container').attr('data-mute') == 'vol') {
+						audiobgm.play();
+					}
 					loadGame();
 				})
 			}, 3500)
@@ -57,8 +60,20 @@
 			setTimeout(function() {
 				level++;
 				resetData();
+				audiobgm.play();
 				loadGame();
 			}, 500)
+		});
+		$('.mute').on('click', function() {
+			if($('.container').attr('data-mute') == 'vol') {
+				$(this).removeClass('active');
+				audiobgm.pause();
+				$('.container').attr('data-mute', 'mute');
+			} else {
+				$(this).addClass('active');
+				audiobgm.play();
+				$('.container').attr('data-mute', 'vol');
+			}
 		});
 		$('.box').swipe( {
 			swipeStatus:function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection)
@@ -79,6 +94,16 @@
 			var html = '<div class="bar">SCORE: <span class="score">0</span></div>';
 			html += '<div class="lv">Target : <span class="target">'+options.target[1]+'</span></div>';
 			html += '<div class="miss">5</div>';
+			html += '<div class="mute';
+			var isMute = $('.container').attr('data-mute');
+			if (isMute == 'vol') {
+				console.log($('.container').attr('data-mute'));
+				html += ' active';
+			} else {
+				console.log($('.container').attr('data-mute'));
+				console.log(1)
+			}
+			html += '">BGM</div>';
 			html += '<div class="start">START</div>';
 			html += '<div class="retry">RETRY</div>';
 			html += '<div class="next">NEXT</div>';
@@ -202,6 +227,7 @@
 			}
 		}
 		function clearGame() {
+			audiobgm.pause();
 			$('.tip, .item').stop(true).remove();
 			$('.box, .ground').hide();
 			container.removeClass('active');
@@ -225,6 +251,7 @@
 			}
 		}
 		function finishGame() {
+			audiobgm.pause();
 			var id = 'audio' + Math.floor(Math.random() * 3 + 7);
 			document.getElementById(id).play();
 			$('.tip, .item').stop(true).remove();

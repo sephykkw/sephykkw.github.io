@@ -104,6 +104,22 @@ body {
 		font-size: 12px;
 		line-height: 20px;
 	}
+	.mute {
+		position: fixed;
+		z-index: 50;
+		top: 13px;
+		right: 15px;
+		font-size: 12px;
+		line-height: 16px;
+		color: lighten(@mainc, 80%);
+		background: lighten(@mainc, 45%);
+		border: 2px solid lighten(@mainc, 80%);
+		border-radius: 15px;
+		padding: 2px 10px;
+		&.active {
+			background: lighten(@mainc, 35%);
+		}
+	}
 	.miss {
 		position: fixed;
 		z-index: 50;
