@@ -201,7 +201,16 @@
 			if (level < options.target.length - 1) {
 				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
+<<<<<<< HEAD
 				$('.circle-clear, .next').delay(500).fadeIn(1000);
+=======
+				$('.circle-clear').delay(300).fadeIn(1000);
+				$('#preload-box').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.gif")');
+				$('#preload-box-miss').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.png")');
+				setTimeout(function() {
+					$('.next').fadeIn(300);
+				}, 1000);
+>>>>>>> 78470b3d70ee491ab9baa89086c32275c31e3a61
 				//var html = '<div class="gift" id="gift' + level + '"></div>';
 				//container.append(html);
 				//$('#gift' + level).delay(600).animate({bottom: '-180px'}, 1000).delay(300).animate({bottom: '-220px'}, 70).delay(100).animate({bottom: 0}, 300).animate({bottom: '-20px'}, 50, function() {
