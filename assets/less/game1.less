@@ -18,7 +18,28 @@ body {
 	width: 100%;
 	height: 100%;
 	background: @bgc;
-	.start, .next {
+	.mode-panel {
+		position: fixed;
+		z-index: 100;
+		width: 120px;
+		height: 110px;
+		top: 50%;
+		left: 50%;
+		font-size: 16px;
+		line-height: 45px;
+		text-align: center;
+		margin-left: -60px;
+		margin-top: -50px;
+		font-weight: bold;
+		color: @bgc;
+		.mode {
+			background: lighten(@mainc, 40%);
+			height: 45px;
+			border-radius: 10px;
+			margin-bottom: 10px;
+		}
+	}
+	.start, .next, .retry {
 		display: none;
 		position: fixed;
 		z-index: 100;
@@ -28,7 +49,7 @@ body {
 		color: @bgc;
 		top: 50%;
 		left: 50%;
-		font-size: 20px;
+		font-size: 16px;
 		letter-spacing: 2px;
 		line-height: 45px;
 		text-align: center;
@@ -50,7 +71,7 @@ body {
 		margin-top: -130px;
 		margin-left: -100px;
 		text-align: center;
-		font-size: 20px;
+		font-size: 16px;
 		letter-spacing: 1px;
 		line-height: 25px;
 		color: @bgc;
@@ -66,7 +87,7 @@ body {
 		color: @bgc;
 		width: 100%;
 		font-weight: bold;
-		font-size: 20px;
+		font-size: 16px;
 		line-height: 20px;
 		letter-spacing: 1px;
 		text-align: center;
@@ -80,7 +101,7 @@ body {
 		opacity: 0.9;
 		text-align: left;
 		color: @bgc;
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 20px;
 	}
 	.miss {
@@ -259,7 +280,7 @@ body {
 			color: lighten(@mainc, 30%);
 			font-weight: bold;
 			line-height: 40px;
-			font-size: 20px;
+			font-size: 16px;
 		}
 	}
 }
