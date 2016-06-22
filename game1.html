@@ -13,8 +13,8 @@
 <body>
 	<div class="container" data-mute="vol"></div>
 	<div class="spec">
-		<div class="bonus-group clearfix">
-			<div class="images">
+		<div class="bonus-group">
+			<div class="images clearfix">
 				<img src="./assets/images/item1.png">
 				<img src="./assets/images/item2.png">
 				<img src="./assets/images/item3.png">
@@ -22,12 +22,12 @@
 				<img src="./assets/images/item5.png">
 			</div>
 			<div class="text">
-				<br/><br/>Perfect +20<br/>
+				Perfect +20<br/>
 				Great&nbsp;&nbsp;&nbsp;+10
 			</div>
 		</div>
-		<div class="bonus-group clearfix minus-group">
-			<div class="images">
+		<div class="bonus-group minus-group">
+			<div class="images clearfix">
 				<img src="./assets/images/item0.png">
 			</div>
 			<div class="text">
@@ -52,7 +52,7 @@
 		$(function() {
 			var funcPort =　function() {
 				if (!$('.container').hasClass('active')) {
-					$('.container').html('<div class="mode-panel"><div class="mode-easy mode">EASY</div><div class="mode-normal mode">NORMAL</div></div>');
+					$('.container').html('<div class="mode-panel"><div class="mode-easy mode">(,,• ₃ •,,)<br/><span>简 单</span></div><div class="mode-normal mode">(•̀ω•́ )ゝ<br/><span>挑 战</span></div></div>');
 				}
 			}
 			var funcLand = function() {
@@ -73,6 +73,7 @@
 				setTimeout(function() {
 					if ($this.hasClass('mode-easy')) {
 						$('.container').html('').game1({
+							'target': [0, 400, 400, 500, 500, 500, 600, 600, 600, 600, 700],
 							'createSpd': [0, 800, 800, 750, 750, 700, 700, 650, 650, 600, 600],
 							'fallSpd': [0, 900, 850, 850, 800, 800, 750, 750, 700, 700, 650]
 						});

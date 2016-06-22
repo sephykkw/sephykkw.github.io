@@ -22,11 +22,11 @@
 			bPdRight: 50,
 			bPdBottom: 60,
 			bWidth: 100,
-			perfectB: 500,
+			perfectB: 20,
 			greatB: 10,
 			bombB: -30,
 			missMax: 5,
-			target: [0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500],
+			target: [0, 500, 500, 600, 600, 600, 700, 700, 700, 700, 800],
 			createSpd: [0, 550, 550, 500, 500, 500, 450, 450, 450, 400, 400],
 			fallSpd: [0, 700, 650, 650, 600, 600, 550, 550, 500, 500, 450],
 			wWidth: $(window).width(),
@@ -52,7 +52,7 @@
 			}, 3500)
 		});
 		$('.retry').on('mouseup', function() {
-			$('.container').html('<div class="mode-panel"><div class="mode-easy mode">EASY</div><div class="mode-normal mode">NORMAL</div></div>');
+			$('.container').html('<div class="mode-panel"><div class="mode-easy mode">(,,• ₃ •,,)<br/><span>简 单</span></div><div class="mode-normal mode">(•̀ω•́ )ゝ<br/><span>挑 战</span></div></div>');
 		});
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
@@ -99,17 +99,13 @@
 			html += '<div class="mute';
 			var isMute = $('.container').attr('data-mute');
 			if (isMute == 'vol') {
-				console.log($('.container').attr('data-mute'));
 				html += ' active';
-			} else {
-				console.log($('.container').attr('data-mute'));
-				console.log(1)
-			}
+			} 
 			html += '">BGM</div>';
-			html += '<div class="start">START</div>';
-			html += '<div class="retry">RETRY</div>';
-			html += '<div class="next">NEXT</div>';
-			html += '<div class="gameclear">GAME CLEAR</div>';
+			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
+			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';
+			html += '<div class="next">ε٩(๑> ₃ <)۶з<br/><span>继续来来来</span></div>';
+			html += '<div class="gameclear"></div>';
 			html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="box"><div class="box-miss"></div></div>';
 			html += '<div class="ground"></div>';
@@ -249,7 +245,7 @@
 				//});
 			} else {
 				audio6.play();
-				$('.gameclear').html('GAME CLEAR').fadeIn(300);
+				$('.gameclear').html('恭喜通关！<br/>并获得阿诚哥的祝福❤').fadeIn(300);
 				$('.retry').delay(500).fadeIn(1000);
 				$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
 			}

@@ -19,23 +19,31 @@ body {
 .container .mode-panel {
   position: fixed;
   z-index: 100;
-  width: 120px;
-  height: 110px;
+  width: 80px;
+  height: 200px;
   top: 50%;
   left: 50%;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 45px;
   text-align: center;
-  margin-left: -60px;
-  margin-top: -50px;
-  font-weight: bold;
-  color: #ffffff;
+  margin-left: -40px;
+  margin-top: -100px;
+  color: #f58989;
 }
 .container .mode-panel .mode {
-  background: #f58989;
-  height: 45px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border: 3px solid #f9b8b8;
+  background: #fcdede;
+  height: 80px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  line-height: 18px;
+  padding: 25px 0 10px;
+  box-shadow: 0 2px 15px #f7a5a5;
+  text-shadow: 0 0 5px #fff;
+  font-weight: bold;
+}
+.container .mode-panel .mode > span {
+  font-size: 12px;
 }
 .container .start,
 .container .next,
@@ -44,19 +52,26 @@ body {
   position: fixed;
   z-index: 100;
   width: 120px;
-  height: 45px;
-  border-radius: 10px;
-  color: #ffffff;
+  height: 80px;
+  border: 3px solid #f9b8b8;
+  background: #fcdede;
+  border-radius: 40px;
+  color: #f58989;
+  text-shadow: 0 0 5px #fff;
+  padding: 18px 0 10px;
   top: 50%;
   left: 50%;
   font-size: 16px;
-  letter-spacing: 2px;
-  line-height: 45px;
+  line-height: 18px;
   text-align: center;
   margin-left: -60px;
-  margin-top: -50px;
-  background: #f58989;
+  margin-top: -55px;
   font-weight: bold;
+}
+.container .start > span,
+.container .next > span,
+.container .retry > span {
+  font-size: 12px;
 }
 .container .gameover,
 .container .gameclear {
@@ -65,14 +80,14 @@ body {
   z-index: 80;
   background: #f9b8b8;
   width: 200px;
-  height: 140px;
+  height: 120px;
   padding: 15px;
   top: 50%;
   left: 50%;
   margin-top: -130px;
   margin-left: -100px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 25px;
   color: #ffffff;
@@ -84,7 +99,7 @@ body {
   padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: #f37272;
+  background: #f7a1a1;
   color: #ffffff;
   width: 100%;
   font-weight: bold;
@@ -113,13 +128,13 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: #ffffff;
-  background: #f7a1a1;
+  background: #f9b8b8;
   border: 2px solid #ffffff;
   border-radius: 15px;
   padding: 2px 10px;
 }
 .container .mute.active {
-  background: #f37272;
+  background: #f58989;
 }
 .container .miss {
   position: fixed;
@@ -231,7 +246,7 @@ body {
   width: 140px;
   height: 140px;
   border-radius: 70px;
-  border: 4px solid #f58989;
+  border: 4px solid #f7a1a1;
   background-color: #fff;
   left: 50%;
   margin-left: -70px;
@@ -281,13 +296,6 @@ body {
   border-radius: 30px;
   padding: 30px;
 }
-.spec .bonus-group.minus-group {
-  margin-top: 30px;
-}
-.spec .bonus-group .images {
-  float: left;
-  width: 50px;
-}
 .spec .bonus-group .images img {
   width: 40px;
   height: 40px;
@@ -295,14 +303,19 @@ body {
   border: 2px solid #f9b8b8;
   background: #fff;
   border-radius: 10px;
+  float: left;
+  margin: 0 5px 5px;
 }
 .spec .bonus-group .text {
-  float: right;
-  text-align: center;
-  color: #f15a5a;
+  text-align: left;
+  color: #f58989;
   font-weight: bold;
-  line-height: 40px;
-  font-size: 16px;
+  line-height: 18px;
+  font-size: 14px;
+  margin: 5px 10px;
+}
+.spec .bonus-group.minus-group {
+  margin-top: 10px;
 }
 .clearfix:after {
   content: ".";
