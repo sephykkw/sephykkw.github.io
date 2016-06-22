@@ -22,7 +22,7 @@
 			bPdRight: 50,
 			bPdBottom: 60,
 			bWidth: 100,
-			perfectB: 20,
+			perfectB: 500,
 			greatB: 10,
 			bombB: -30,
 			missMax: 5,
@@ -38,6 +38,7 @@
 			audio1.load();audio2.load();audio3.load();audio4.load();audio5.load();audio6.load();audio7.load();audio8.load();audio9.load();audiobgm.load();
 			container.addClass('active');
 			$('.start, .gameover, .gameclear, .circle').fadeOut(500);
+			$('.circle').css('top', '100%');
 			level = 1;
 			resetData();
 			$('.spec').fadeIn(500);
@@ -56,6 +57,7 @@
 		$('.next').on('mouseup', function() {
 			container.addClass('active');
 			$('.next, .gameclear, .circle').hide();
+			$('.circle').css('top', '100%');
 			$('.gift').animate({bottom: '-250px'}, 500);
 			setTimeout(function() {
 				level++;
@@ -234,7 +236,8 @@
 			if (level < options.target.length - 1) {
 				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
-				$('.circle-clear, .next').delay(500).fadeIn(1000);
+				$('.next').delay(500).fadeIn(1000);
+				$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
 				$('#preload-box').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.gif")');
 				$('#preload-box-miss').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.png")');
 				//var html = '<div class="gift" id="gift' + level + '"></div>';
@@ -247,7 +250,8 @@
 			} else {
 				audio6.play();
 				$('.gameclear').html('GAME CLEAR').fadeIn(300);
-				$('.circle-clear, .retry').delay(500).fadeIn(1000);
+				$('.retry').delay(500).fadeIn(1000);
+				$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
 			}
 		}
 		function finishGame() {
@@ -258,7 +262,8 @@
 			$('.box, .ground').hide();
 			$('.goscore').html(score);
 			$('.gameover').show();
-			$('.circle-over, .retry').delay(500).fadeIn(1000);
+			$('.retry').delay(500).fadeIn(1000);
+			$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
 			container.removeClass('active');
 		}
 		function appendTip(rank) {
