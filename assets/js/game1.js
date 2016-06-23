@@ -233,7 +233,7 @@
 				audio5.play();
 				$('.gameclear').html('LEVEL ' + level + '<br/>CLEAR').fadeIn(300);
 				$('.next').delay(500).fadeIn(1000);
-				$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
+				$('.circle-clear').show().delay(500).animate({top: '40%'}, 300).animate({top: '70%'}, 200).animate({top: '45%'}, 300).animate({top: '50%'}, 300);
 				$('#preload-box').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.gif")');
 				$('#preload-box-miss').css('backgroundImage', 'url("./assets/images/box-'+(level+1)+'.png")');
 				//var html = '<div class="gift" id="gift' + level + '"></div>';
@@ -247,7 +247,7 @@
 				audio6.play();
 				$('.gameclear').html('恭喜通关！<br/>并获得阿诚哥的祝福❤').fadeIn(300);
 				$('.retry').delay(500).fadeIn(1000);
-				$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
+				$('.circle-clear').show().delay(500).animate({top: '40%'}, 300).animate({top: '70%'}, 200).animate({top: '45%'}, 300).animate({top: '50%'}, 300);
 			}
 		}
 		function finishGame() {
@@ -259,7 +259,7 @@
 			$('.goscore').html(score);
 			$('.gameover').show();
 			$('.retry').delay(500).fadeIn(1000);
-			$('.circle-clear').show().delay(500).animate({top: '40%'}, 200).animate({top: '70%'}, 100).animate({top: '45%'}, 200).animate({top: '50%'}, 200);
+			$('.circle-over').show().delay(500).animate({top: '40%'}, 300).animate({top: '70%'}, 200).animate({top: '45%'}, 300).animate({top: '50%'}, 300);
 			container.removeClass('active');
 		}
 		function appendTip(rank) {
