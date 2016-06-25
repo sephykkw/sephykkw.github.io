@@ -1,17 +1,53 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html> 
+<html> 
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>kkw</title>
-    <link href="./assets/css/game2.css" rel="stylesheet" type="text/css" />
-    <script src="./assets/js/jquery-1.12.1.min.js"></script>
-    <script src="./assets/js/easing.js"></script>
-    <script src="./assets/js/jquery.touchSwipe.min.js"></script>
-    <script src="./assets/js/parabola.js"></script>
-    <script src="./assets/js/game2.js"></script>
+	<link href="./assets/css/main.css" rel="stylesheet">
+	<link href="./assets/css/jquery-ui.min.css" rel="stylesheet">
+	<script src="./assets/js/jquery-1.12.1.min.js"></script>
+	<script src="./assets/js/jquery-ui.min.js"></script>
+	
 </head>
 <body>
-	<div class="container"></div>
+<div class="wrap">
+	<div class="container">
+		<div class="progressbar">
+			<div id="scoreboard">S: 0</div><div id="progressbar"></div><div id="timer">0:00</div>
+		</div>
+		<div class="game_box">
+			<ul id="game">
+			</ul>
+		</div>
+		<div class="start_btn btn">START</div>
+		<div class="finalscore"></div>
+		<div class="bonuslist"></div>
+		<div class="alertbox">No more triple!</div>
+	</div>
+</div>
+<script src="./assets/js/common.js"></script>
+<script src="./assets/js/game2.js"></script>
+<script>
+	$(function() {
+		var funcPort =　function() {
+			if (!$('.container').hasClass('active')) {
+				$('.container').game2();
+			}
+		}
+		var funcLand = function() {
+			if (!$('.container').hasClass('active')) {
+				$('.container').html('<div style="width: 100%; text-align: center; position: absolute; top: 48%">Pls rotate your screen</div>');
+			}
+		}
+		
+		orient(funcPort, funcLand);
+		$(window).on( 'orientationchange', function(e){
+			window.location.reload();
+			orient(funcPort, funcLand);
+		});
+			
+	});
+</script>
 </body>
 </html>
