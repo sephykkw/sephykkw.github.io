@@ -1,4 +1,7 @@
 /* Global */
+* {
+	box-sizing: border-box;	
+}
 html, body {
 	height: 100%;
 }
@@ -82,8 +85,8 @@ select:empty {
 	height: 100%;
 }
 .container {
-	width: 420px;
-	margin: 20px auto;
+	width: 300px;
+	margin: 10px auto;
 }
 .progressbar {
 	width: 420px;
@@ -139,7 +142,7 @@ select:empty {
 	
 }
 .game_box {
-	width: 400px;
+	width: 300px;
 	height: 400px;
 	box-shadow: 0px 0px 1px #FFD0D1;
 	border: 1px solid #ff8894;

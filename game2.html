@@ -30,8 +30,12 @@
 <script src="./assets/js/game2.js"></script>
 <script>
 	$(function() {
+		alert($(window).width());
 		var funcPort =　function() {
 			if (!$('.container').hasClass('active')) {
+				var wWidth = $(window).width();
+				var wHeight = $(window).height();
+				$('.container').width = wWidth > 750 ? 700 : 0.9 * wWdith;	
 				$('.container').game2();
 			}
 		}

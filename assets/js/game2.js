@@ -7,8 +7,7 @@
 		options = $.extend({
 			timertime: 90,
 			defaulttimertime: 90,
-			boxnum: 5,
-			bonusidnum
+			boxnum: 5
 			//wWidth: $(window).width(),
 			//wHeight: $(window).height()
 		}, options);
