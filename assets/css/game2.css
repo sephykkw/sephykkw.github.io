@@ -3,156 +3,232 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Century Gothic', sans-serif;
-  overflow: hidden;
 }
 html,
 body {
   height: 100%;
 }
 body {
-  background: #eeeeee;
+  background: #ffffff;
+  overflow: hidden;
 }
 .container {
   width: 100%;
   height: 100%;
-  background: #eeeeee;
+  background: #ffffff;
+}
+.container .progressbar {
+  width: 100%;
+}
+.container .progressbar #progressbar {
+  position: fixed;
+  bottom: 20px;
+  left: 5%;
+  width: 90%;
+}
+.container .progressbar #progressbar .ui-widget-header {
+  background: #f7a1a1;
+  border: 0px;
+}
+.container .progressbar #progressbar .ui-progressbar-value {
+  margin: 0px;
+}
+.container .progressbar .ui-widget-content {
+  background: #ffffff!important;
+}
+.container .progressbar .ui-progressbar {
+  height: 15px;
+}
+.container .game_box {
+  width: 370px;
+  height: 520px;
+  box-shadow: 0px 0px 1px #FFD0D1;
+  border: 1px solid #ff8894;
+  border-radius: 5px;
+  padding: 9px;
+  margin: 70px auto 10px;
+}
+.container .boxcolumn {
+  display: inline-block;
+}
+.container .box {
+  display: block;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  font-size: 0px;
+  line-height: 0px;
+  border-radius: 8px;
+  margin: 4px 2px;
+  background-size: 100% 100%;
+  background-color: #ffadc2;
+}
+.container .box.box0 {
+  background-image: url('../images/g2/1.png');
+  background-color: red;
+}
+.container .box.box1 {
+  background-image: url('../images/g2/2.png');
+  background-color: yellow;
+}
+.container .box.box2 {
+  background-image: url('../images/g2/3.png');
+  background-color: green;
+}
+.container .box.box3 {
+  background-image: url('../images/g2/4.png');
+  background-color: blue;
+}
+.container .box.box4 {
+  background-image: url('../images/g2/5.png');
+  background-color: pink;
+}
+.container .box.box5 {
+  background-image: url('../images/g2/6.png');
+  background-color: orange;
+}
+.container .original {
+  position: relative;
+  top: -38px;
+}
+.container .inactivebox {
+  opacity: 0.2;
+}
+.container .bonus {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  font-size: 16px;
+  text-shadow: 0px 0px 5px #ff8894;
+}
+.container .alertbox {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 155px;
+  left: 50%;
+  margin-left: -77px;
+  width: 150px;
+  padding: 20px 0px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 2px solid #ffcccc;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }
 .container .start,
-.container .next {
+.container .retry {
   display: none;
   position: fixed;
   z-index: 100;
-  width: 80px;
-  height: 40px;
-  border-radius: 3px;
-  border: 2px solid #fff;
-  color: #fff;
+  width: 120px;
+  height: 80px;
+  border: 3px solid #f9b8b8;
+  background: #fcdede;
+  border-radius: 40px;
+  color: #f58989;
+  text-shadow: 0 0 5px #fff;
+  padding: 18px 0 10px;
   top: 50%;
   left: 50%;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 18px;
   text-align: center;
-  margin-left: -40px;
-  margin-top: -20px;
+  margin-left: -60px;
+  margin-top: -55px;
+  font-weight: bold;
 }
-.container .gameover,
-.container .gameclear {
+.container .start > span,
+.container .retry > span {
+  font-size: 12px;
+}
+.container .gameover {
   display: none;
   position: fixed;
   z-index: 80;
-  background: rgba(255, 255, 255, 0.4);
+  background: #f9b8b8;
   width: 200px;
-  height: 140px;
+  height: 120px;
   padding: 15px;
   top: 50%;
   left: 50%;
-  margin-top: -100px;
+  margin-top: -130px;
   margin-left: -100px;
   text-align: center;
-  font-size: 20px;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 25px;
-  color: #dddddd;
+  color: #ffffff;
+  border-radius: 10px;
 }
 .container .bar {
   position: fixed;
   top: 0;
-  padding: 10px;
+  padding: 15px;
   z-index: 30;
   opacity: 0.9;
-  background: rgba(255, 255, 255, 0.8);
-  color: #dddddd;
+  background: #f7a1a1;
+  color: #ffffff;
   width: 100%;
   font-weight: bold;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 20px;
   letter-spacing: 1px;
   text-align: center;
 }
-.container .lv {
+.container #timer {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10px;
+  padding: 15px;
   z-index: 50;
   opacity: 0.9;
   text-align: left;
-  color: #dddddd;
-  font-size: 13px;
-  line-height: 16px;
-}
-.container .miss {
-  position: fixed;
-  z-index: 50;
-  top: 60px;
-  right: 15px;
-  color: #dddddd;
-}
-.container .tip {
-  display: none;
-  position: fixed;
-  z-index: 50;
-  top: 30%;
-  width: 100%;
-  text-align: center;
-  font-size: 70px;
-  text-shadow: 0 0 10px #fff;
-  opacity: 0.8;
-}
-.container .tip.tip-perfect {
-  color: #dddddd;
-}
-.container .tip.tip-great {
-  color: #f7f7f7;
-}
-.container .tip.tip-miss {
   color: #ffffff;
+  font-size: 12px;
+  line-height: 20px;
 }
-.container .box {
+.container .mute {
+  position: fixed;
+  z-index: 50;
+  top: 13px;
+  right: 15px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+  background: #f9b8b8;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  padding: 2px 10px;
+}
+.container .mute.active {
+  background: #f58989;
+}
+.container .circle {
   display: none;
-  width: 60px;
-  height: 30px;
-  background: #cccccc;
-  position: fixed;
-  z-index: 20;
-  bottom: 0;
-  left: 100px;
-}
-.container .item {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  position: fixed;
-  z-index: 10;
-  top: -20px;
-  left: 0;
-}
-.container .item.item0 {
-  background: #dddddd;
-}
-.container .item.item1 {
-  background: #f7f7f7;
-}
-.container .item.item2 {
-  background: #ffffff;
-}
-.container .gift {
   position: fixed;
   z-index: 120;
-  width: 100%;
-  height: 250px;
-  bottom: -250px;
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  border: 4px solid #f7a1a1;
+  background-color: #fff;
+  left: 50%;
+  margin-left: -70px;
+  top: 100%;
+  margin-top: 50px;
 }
-.container .gift#gift1 {
-  background: #e1e1e1;
-  border-radius: 125px;
+.container .circle.circle-clear {
+  background-image: url('../images/box-1.gif');
+  background-size: 160px 160px;
+  background-position: -42px 12px;
+  background-repeat: no-repeat;
 }
-.container .gift#gift2 {
-  background: #d5d5d5;
-  border-radius: 200px;
-}
-.container .gift#gift3 {
-  background: #fbfbfb;
-  border-radius: 200px;
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }

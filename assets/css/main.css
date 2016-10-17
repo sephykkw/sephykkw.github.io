@@ -161,24 +161,26 @@ select:empty {
 	line-height: 0px;
 	border-radius: 5px;
 	margin: 4px 2px;
+	background-size: 100% 100%;
+	background-color: #ffadc2;
 }
 .box0 {
-	background: url('../images/g2/1.png');
+	background-image: url('../images/g2/1.png');
 }
 .box1 {
-	background: url('../images/g2/2.jpg');
+	background-image: url('../images/g2/2.png');
 }
 .box2 {
-	background: url('../images/g2/3.png');
+	background-image: url('../images/g2/3.png');
 }
 .box3 {
-	background: url('../images/g2/4.jpg');
+	background-image: url('../images/g2/4.png');
 } 
 .box4 {
-	background: url('../images/g2/5.png');
+	background-image: url('../images/g2/5.png');
 }
 .box5 {
-	background: url('../images/g2/6.jpg');
+	background-image: url('../images/g2/6.png');
 }
 
 .original {
@@ -222,7 +224,7 @@ select:empty {
 	padding: 20px 0px;
 	border-radius: 10px;
 	background-color: rgba(255,255,255,0.75);
-	border: 2px solid #ffadc2;
+	border: 2px solid #ffcccc;
 	font-weight: bold;
 	font-size: 20px;
 	text-align: center;
