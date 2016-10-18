@@ -44,9 +44,6 @@ body {
 .container .game_box {
   width: 370px;
   height: 520px;
-  box-shadow: 0px 0px 1px #FFD0D1;
-  border: 1px solid #ff8894;
-  border-radius: 5px;
   padding: 9px;
   position: absolute;
   top: 70px;
@@ -67,6 +64,63 @@ body {
   background-size: 100% 100%;
   background-color: #ffadc2;
   cursor: pointer;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.7);
+  border: 1px solid #f9b8b8;
+}
+.container .box .light {
+  width: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  border: 5px solid transparent;
+  border-right: 5px solid rgba(255, 255, 255, 0.4);
+}
+.container .box .cover {
+  z-index: 6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .15;
+}
+.container .box .cover.cl00 {
+  background-color: #feebc8;
+}
+.container .box .cover.cl01 {
+  background-color: #e8d3c7;
+}
+.container .box .cover.cl02 {
+  background-color: #dae8ea;
+}
+.container .box .cover.cl03 {
+  background-color: #e7e7eb;
+}
+.container .box .cover.cl04 {
+  background-color: #d6e9ca;
+}
+.container .box .cover.cl05 {
+  background-color: #ead9e8;
+}
+.container .box .cover.cl10 {
+  background-color: #ffd994;
+}
+.container .box .cover.cl11 {
+  background-color: #edb18f;
+}
+.container .box .cover.cl12 {
+  background-color: #a9e0e8;
+}
+.container .box .cover.cl13 {
+  background-color: #bdbde2;
+}
+.container .box .cover.cl14 {
+  background-color: #b6ed93;
+}
+.container .box .cover.cl15 {
+  background-color: #e8a8e1;
 }
 .container .box.box0 {
   background-image: url('../images/g2/1.png');
@@ -86,23 +140,53 @@ body {
 .container .box.box5 {
   background-image: url('../images/g2/6.png');
 }
-.container .box.cl0 {
-  background-color: #f6bfbc;
+.container .box.cl00 {
+  background-color: #feebc8;
+  border: 2px solid #feebc8;
 }
-.container .box.cl1 {
+.container .box.cl01 {
   background-color: #e8d3c7;
+  border: 2px solid #e8d3c7;
 }
-.container .box.cl2 {
-  background-color: #d3ccd6;
+.container .box.cl02 {
+  background-color: #dae8ea;
+  border: 2px solid #dae8ea;
 }
-.container .box.cl3 {
+.container .box.cl03 {
   background-color: #e7e7eb;
+  border: 2px solid #e7e7eb;
 }
-.container .box.cl4 {
+.container .box.cl04 {
   background-color: #d6e9ca;
+  border: 2px solid #d6e9ca;
 }
-.container .box.cl5 {
-  background-color: #e6cde3;
+.container .box.cl05 {
+  background-color: #ead9e8;
+  border: 2px solid #ead9e8;
+}
+.container .box.cl10 {
+  background-color: #ffd994;
+  border: 2px solid #ffd994;
+}
+.container .box.cl11 {
+  background-color: #edb18f;
+  border: 2px solid #edb18f;
+}
+.container .box.cl12 {
+  background-color: #a9e0e8;
+  border: 2px solid #a9e0e8;
+}
+.container .box.cl13 {
+  background-color: #bdbde2;
+  border: 2px solid #bdbde2;
+}
+.container .box.cl14 {
+  background-color: #b6ed93;
+  border: 2px solid #b6ed93;
+}
+.container .box.cl15 {
+  background-color: #e8a8e1;
+  border: 2px solid #e8a8e1;
 }
 .container .original {
   position: relative;
