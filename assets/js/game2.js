@@ -13,7 +13,7 @@
 		
 		init();
 		
-		$('.start').click(function() {
+		$('.start, .retry').click(function() {
 			$('.gameover').hide();
 			$(this).hide();
 			$('.score').text(totalbonus);
@@ -37,8 +37,9 @@
 					$('#timer').text(showtime(0));
 					clearInterval(timeinterval);
 					$('.activebox').removeClass('activebox').addClass('inactivebox');
-					$('.finalscore').html('YOUR SCORE<br />' + totalbonus).fadeIn(500);
-					$('.start').delay(500).fadeIn(500);
+					$('.gameover .goscore').html(totalbonus);
+					$('.gameover').fadeIn(500);
+					$('.retry').delay(500).fadeIn(500);
 				}
 			}, 1000);
 		});	
@@ -68,7 +69,7 @@
 				$('.samecolor').each(function() {
 					var boxr = parseInt($(this).attr('id').substr(1, 1));
 					var boxc = parseInt($(this).attr('id').substr(3, 1));							
-					$(this).removeClass('samecolor').effect('explode', 400).remove();
+					$(this).removeClass('samecolor').fadeOut().remove();
 					var i, j;
 					j = boxr - 1;
 					for(i = j; i > -1; i--) {
@@ -112,7 +113,7 @@
 			html += '<div class="alertbox"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div>';
 			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
 			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';
-			html += '<div class="gameover">\(≧▽≦)/<br/>SCORE: <span class="goscore"></span></div>';
+			html += '<div class="gameover">\\(≧▽≦)/<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="circle"></div>';
 
 			container.append(html);

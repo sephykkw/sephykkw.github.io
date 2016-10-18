@@ -18,6 +18,9 @@ body {
   background: #ffffff;
   margin: 0 auto;
   position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding-bottom: 15px;
 }
 .container .progressbar {
   position: absolute;
@@ -185,6 +188,7 @@ body {
   line-height: 25px;
   color: #ffffff;
   border-radius: 10px;
+  font-weight: bold;
 }
 .container .bar {
   position: absolute;
