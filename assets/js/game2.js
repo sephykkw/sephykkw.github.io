@@ -1,6 +1,6 @@
 (function ($) {
 
-	var bonusidnum, totalbonus, score, level, isMute, timertime, boxnum;
+	var totalbonus, score, level, isMute, timertime, boxnum;
 	
 	$.fn.game2 = function(options) {
 		
@@ -16,8 +16,6 @@
 		$('.start').click(function() {
 			$('.gameover').hide();
 			$(this).hide();
-			$('.bonuslist').html('');
-			totalbonus = bonusidnum= 0;
 			$('.score').text(totalbonus);
 			
 			gengamebox();
@@ -46,9 +44,6 @@
 		});	
 			
 		$(document).on('click', '.activebox', function() {
-			var theEvent = window.event || arguments.callee.caller.arguments[0];	
-			var x = theEvent.pageX - 50;
-			var	y = theEvent.pageY - 20;
 			//mark samebox
 			var samecount = 1;
 			$(this).addClass('counted').addClass('checked').addClass('samecolor');
@@ -62,16 +57,11 @@
 					}
 				});
 			}
-			//succeed
+			//success
 			if(samecount > 2) {
 				//score & bonus
 				timertime+=0.3;
 				var bonus = Math.round((samecount - 1 + Math.pow((samecount - 2), 1.2)) * 10);
-				var position = 'left:' + x + 'px;top:' + y + 'px';
-				$('.bonuslist').append('<div class="bonus" id="bonus' + bonusidnum + '">+' + bonus + '</div>');
-				var bonusid = '#bonus' + bonusidnum;
-				$(bonusid).attr('style', position).show().delay(500).effect('drop', { direction: "right" });
-				bonusidnum++;
 				totalbonus += bonus;
 				$('.score').text(totalbonus);
 				//explode & generate
@@ -88,7 +78,8 @@
 						$(boxid).attr('id', newid).attr('style', "position: -48px").animate({top: "0px"}, rantime());
 					}	
 					var colId = '#c' + boxc;
-					$(colId).prepend('<li class="box box' + rancolor() + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
+					var rc = rancolor();
+					$(colId).prepend('<li class="box box' + rc + ' cl' + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
 					var newboxid = '#r' + 0 + 'c' + boxc;
 					$(newboxid).animate({top: "0px"}, rantime());
 				});	
@@ -118,11 +109,10 @@
 			html += '">BGM</div>';
 			html += '<div class="progressbar"><div id="progressbar"></div></div>';
 			html += '<div class="game_box"><ul id="game"></ul></div>';
-			html += '<div class="bonuslist"></div>';
-			html += '<div class="alertbox">No more triple!</div>';
+			html += '<div class="alertbox"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div>';
 			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
 			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';
-			html += '<div class="gameover">GAMEOVER<br/>SCORE: <span class="goscore"></span></div>';
+			html += '<div class="gameover">\(≧▽≦)/<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="circle"></div>';
 
 			container.append(html);
@@ -137,6 +127,7 @@
 		}
 		
 		function alertpopup() {
+			$('.activebox').removeClass('activebox').addClass('inactivebox');
 			$('.alertbox').show().delay(1000).fadeOut(200);
 		}
 		function rancolor() {
@@ -152,7 +143,8 @@
 				$('#game').append('<li class="boxcolumn"><ul id="c' + i + '"></ul></li>');
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
-					$(colId).append('<li class="box box' + rancolor() + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					var rc =  rancolor();
+					$(colId).append('<li class="box box' + rc + ' cl' + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 					$(newboxid).animate({top: "0px"}, rantime());
 				}
@@ -165,7 +157,8 @@
 				$('#game').append('<li class="boxcolumn"><ul id="c' + i + '"></ul></li>');
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
-					$(colId).append('<li class="box box' + rancolor() + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					var rc =  rancolor();
+					$(colId).append('<li class="box box' + rc + ' cl' + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 				}
 			}

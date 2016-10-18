@@ -27,6 +27,17 @@
 				$('.container').html('<div style="width: 100%; text-align: center; position: absolute; top: 48%">Pls rotate your screen</div>');
 			}
 		}
+		var resize = function() {
+			var w = $(window).width();
+			if (w < 400) {
+				var ratio = w / 400;
+				var diff = ( w - 400 ) / 2;
+				console.log(ratio);
+				$('.container').css({'transform': 'translate(' + diff + 'px) scale(' + ratio + ' ,' + ratio + ')'});
+			} else {
+				$('.container').css({'transform': 'translate(0) scale(1,1)'});
+			}
+		}
 		
 		orient(funcPort, funcLand);
 		$(window).on( 'orientationchange', function(e){
@@ -34,6 +45,10 @@
 			orient(funcPort, funcLand);
 		});
 			
+		resize();
+		$(window).on('resize', function() {
+			resize();
+		});
 
 	});
 </script>

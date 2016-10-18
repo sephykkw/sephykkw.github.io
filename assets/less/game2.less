@@ -12,22 +12,23 @@ html, body {
 	height: 100%;
 }
 body {
-	background: @bgc;
+	background: lighten(@mainc,58%);
 	overflow: hidden;
 }
 .container {
 
-	width: 100%;
+	width: 400px;
 	height: 100%;
 	background: @bgc;
+	margin: 0 auto;
+	position: relative;
 
 	.progressbar {
-		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		left: 5%;
+		right: 5%;
 		#progressbar {
-			position: fixed;
-			bottom: 20px;
-			left: 5%;
-			width: 90%;
 			.ui-widget-header {
 				background: lighten(@mainc, 45%);
 				border: 0px;
@@ -51,7 +52,9 @@ body {
 		border: 1px solid #ff8894;
 		border-radius: 5px;
 		padding: 9px;
-		margin: 70px auto 10px;
+		position: absolute;
+		top: 70px;
+		left: 15px;
 	}
 
 	.boxcolumn {
@@ -69,30 +72,44 @@ body {
 		margin: 4px 2px;
 		background-size: 100% 100%;
 		background-color: #ffadc2;
+		cursor: pointer;
 		&.box0 {
 			background-image: url('../images/g2/1.png');
-			background-color: red;
 		}
 		&.box1 {
 			background-image: url('../images/g2/2.png');
-			background-color: yellow;
 		}
 		&.box2 {
 			background-image: url('../images/g2/3.png');
-			background-color: green;
 		}
 		&.box3 {
 			background-image: url('../images/g2/4.png');
-			background-color: blue;
 		} 
 		&.box4 {
 			background-image: url('../images/g2/5.png');
-			background-color: pink;
 		}
 		&.box5 {
 			background-image: url('../images/g2/6.png');
-			background-color: orange;
 		}
+		&.cl0 {
+			background-color: #f6bfbc;
+		}
+		&.cl1 {
+			background-color: #e8d3c7;
+		}
+		&.cl2 {
+			background-color: #d3ccd6;
+		}
+		&.cl3 {
+			background-color: #e7e7eb;
+		}
+		&.cl4 {
+			background-color: #d6e9ca;
+		}
+		&.cl5 {
+			background-color: #e6cde3;
+		}
+
 	}
 
 	.original {
@@ -112,19 +129,28 @@ body {
 
 	.alertbox {
 		display: none;
-		position: absolute;
-		z-index: 10;
-		top: 155px;
+		position: fixed;
+		z-index: 100;
+		width: 200px;
+		height: 130px;
+		border: 3px solid lighten(@mainc, 35%);
+		background: lighten(@mainc, 60%);
+		border-radius: 40px;
+		color: lighten(@mainc, 35%);
+		text-shadow: 0 0 5px #fff;
+		padding: 28px 0 10px;
+		top: 50%;
 		left: 50%;
-		margin-left: -77px;
-		width: 150px;
-		padding: 20px 0px;
-		border-radius: 10px;
-		background-color: rgba(255,255,255,0.75);
-		border: 2px solid #ffcccc;
-		font-weight: bold;
 		font-size: 20px;
+		line-height: 20px;
 		text-align: center;
+		margin-left: -100px;
+		margin-top: -85px;
+		font-weight: bold;
+		cursor: pointer;
+		> span {
+			font-size: 20px;
+		}
 	}
 
 	.start, .retry {
@@ -147,6 +173,7 @@ body {
 		margin-left: -60px;
 		margin-top: -55px;
 		font-weight: bold;
+		cursor: pointer;
 		> span {
 			font-size: 12px;
 		}
@@ -171,7 +198,7 @@ body {
 		border-radius: 10px;
 	}
 	.bar {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		padding: 15px;
 		z-index: 30;
@@ -186,7 +213,7 @@ body {
 		text-align: center;
 	}
 	#timer {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		padding: 15px;
@@ -198,7 +225,7 @@ body {
 		line-height: 20px;
 	}
 	.mute {
-		position: fixed;
+		position: absolute;
 		z-index: 50;
 		top: 13px;
 		right: 15px;
@@ -209,6 +236,7 @@ body {
 		border: 2px solid lighten(@mainc, 80%);
 		border-radius: 15px;
 		padding: 2px 10px;
+		cursor: pointer;
 		&.active {
 			background: lighten(@mainc, 40%);
 		}
