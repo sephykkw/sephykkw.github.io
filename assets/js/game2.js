@@ -81,7 +81,7 @@
 					}	
 					var colId = '#c' + boxc;
 					var rc = rancolor();
-					$(colId).prepend('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '><div class="cover cl' + options.colorlevel + rc + '"></div><div class="light"></div>' + 0 + boxc + '</li>');
+					$(colId).prepend('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
 					var newboxid = '#r' + 0 + 'c' + boxc;
 					$(newboxid).animate({top: "0px"}, rantime());
 				});	
@@ -146,7 +146,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ j + 'c' + i + '><div class="cover cl' + options.colorlevel + rc + '"></div><div class="light"></div>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 					$(newboxid).animate({top: "0px"}, rantime());
 				}
@@ -160,7 +160,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' activebox" id=r'+ j + 'c' + i + '><div class="cover cl' + options.colorlevel + rc + '"></div><div class="light"></div>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 				}
 			}
