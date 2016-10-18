@@ -107,8 +107,8 @@
 				html += ' active';
 			} 
 			html += '">BGM</div>';
-			html += '<div class="progressbar"><div id="progressbar"></div></div>';
 			html += '<div class="game_box"><ul id="game"></ul></div>';
+			html += '<div class="progressbar"><div id="progressbar"></div></div>';
 			html += '<div class="alertbox"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div>';
 			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
 			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';

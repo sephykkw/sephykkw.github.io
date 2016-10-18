@@ -31,9 +31,9 @@
 			var w = $(window).width();
 			if (w < 400) {
 				var ratio = w / 400;
-				var diff = ( w - 400 ) / 2;
-				console.log(ratio);
-				$('.container').css({'transform': 'translate(' + diff + 'px) scale(' + ratio + ' ,' + ratio + ')'});
+				var x = ( w - 400 ) / 2;
+				var y = ( ratio - 1 ) * 635 / 2;
+				$('.container').css({'transform': 'translate(' + x + 'px, ' + y + 'px) scale(' + ratio + ' ,' + ratio + ')'});
 			} else {
 				$('.container').css({'transform': 'translate(0) scale(1,1)'});
 			}
