@@ -85,51 +85,39 @@ body {
 }
 .container .box.cl00 {
   background-color: #feebc8;
-  border: 2px solid #feebc8;
 }
 .container .box.cl01 {
   background-color: #e8d3c7;
-  border: 2px solid #e8d3c7;
 }
 .container .box.cl02 {
   background-color: #dae8ea;
-  border: 2px solid #dae8ea;
 }
 .container .box.cl03 {
   background-color: #e7e7eb;
-  border: 2px solid #e7e7eb;
 }
 .container .box.cl04 {
   background-color: #d6e9ca;
-  border: 2px solid #d6e9ca;
 }
 .container .box.cl05 {
   background-color: #ead9e8;
-  border: 2px solid #ead9e8;
 }
 .container .box.cl10 {
   background-color: #ffd994;
-  border: 2px solid #ffd994;
 }
 .container .box.cl11 {
   background-color: #edb18f;
-  border: 2px solid #edb18f;
 }
 .container .box.cl12 {
   background-color: #a9e0e8;
-  border: 2px solid #a9e0e8;
 }
 .container .box.cl13 {
   background-color: #bdbde2;
-  border: 2px solid #bdbde2;
 }
 .container .box.cl14 {
   background-color: #b6ed93;
-  border: 2px solid #b6ed93;
 }
 .container .box.cl15 {
   background-color: #e8a8e1;
-  border: 2px solid #e8a8e1;
 }
 .container .original {
   position: relative;

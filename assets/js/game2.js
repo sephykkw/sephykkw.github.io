@@ -9,7 +9,7 @@
 		options = $.extend({
 			defaulttimertime: 90,
 			boxnum: 6,
-			colorlevel: 1
+			colorlevel: 0
 		}, options);
 		
 		init();
