@@ -6,7 +6,7 @@
 	padding: 0; 
 	margin: 0; 
 	box-sizing: border-box;
-	font-family: 'Century Gothic', sans-serif;
+	font-family: 'Century Gothic', 'Microsoft Yahei';
 }
 html, body {
 	height: 100%;
@@ -15,8 +15,13 @@ body {
 	background: lighten(@mainc,58%);
 	overflow: hidden;
 }
+.wrapper {
+	width: 430px;
+	height: 635px;
+	margin: 0 auto;
+	transform-origin: 0 0;
+}
 .container {
-
 	width: 400px;
 	height: 635px;
 	background: @bgc;
@@ -32,19 +37,16 @@ body {
 		left: 5%;
 		right: 5%;
 		#progressbar {
-			.ui-widget-header {
-				background: lighten(@mainc, 45%);
-				border: 0px;
-			}
-			.ui-progressbar-value {
-				margin: 0px;
-			}
-		}
-		.ui-widget-content {
-			background: #ffffff!important;
-		}
-		.ui-progressbar {
 			height: 15px;
+			background: #fff;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			#progressbar-val {
+				margin: 0px;
+				background: #f7a1a1;
+				border-radius: 4px;
+				height: 100%;
+			}
 		}
 	}
 
@@ -74,24 +76,44 @@ body {
 		background-color: #ffadc2;
 		cursor: pointer;
 		
-		&.box0 {
+		&.box00 {
 			background-image: url('../images/g2/1.png');
 		}
-		&.box1 {
+		&.box01 {
 			background-image: url('../images/g2/2.png');
 		}
-		&.box2 {
+		&.box02 {
 			background-image: url('../images/g2/3.png');
 		}
-		&.box3 {
+		&.box03 {
 			background-image: url('../images/g2/4.png');
 		} 
-		&.box4 {
+		&.box04 {
 			background-image: url('../images/g2/5.png');
 		}
-		&.box5 {
+		&.box05 {
 			background-image: url('../images/g2/6.png');
 		}
+
+		&.box10 {
+			background-image: url('../images/g3/1.png');
+		}
+		&.box11 {
+			background-image: url('../images/g3/2.jpg');
+		}
+		&.box12 {
+			background-image: url('../images/g3/3.png');
+		}
+		&.box13 {
+			background-image: url('../images/g3/4.jpg');
+		} 
+		&.box14 {
+			background-image: url('../images/g3/5.png');
+		}
+		&.box15 {
+			background-image: url('../images/g3/6.jpg');
+		}
+
 		&.cl00 {
 			background-color: #feebc8;
 		}
@@ -110,6 +132,7 @@ body {
 		&.cl05 {
 			background-color: #ead9e8;
 		}
+
 		&.cl10 {
 			background-color: saturate(darken(#feebc8, 10%),30%);
 		}
@@ -149,46 +172,43 @@ body {
 		display: none;
 		position: fixed;
 		z-index: 100;
-		width: 200px;
-		height: 130px;
-		border: 3px solid lighten(@mainc, 35%);
-		background: lighten(@mainc, 60%);
-		border-radius: 40px;
-		color: lighten(@mainc, 35%);
-		text-shadow: 0 0 5px #fff;
-		padding: 28px 0 10px;
-		top: 50%;
-		left: 50%;
-		font-size: 20px;
-		line-height: 20px;
-		text-align: center;
-		margin-left: -100px;
-		margin-top: -85px;
-		font-weight: bold;
-		cursor: pointer;
-		> span {
+		width: 400px;
+		height: 540px;
+		background: rgba(255,255,255,.85);
+		padding: 180px 0 10px;
+		top: 50px;
+		left: 15px;
+		.inner {
+			width: 240px;
+			margin: 0 auto;
+			height: 120px;
+			padding: 22px 20px 0;
+			border: 8px solid lighten(@mainc, 50%);
+			background: #fff;
+			border-radius: 8px;
+			color: lighten(@mainc, 50%);
 			font-size: 20px;
+			line-height: 20px;
+			text-align: center;
+			font-weight: bold;
+			cursor: pointer;
+			> span {
+				font-size: 20px;
+			}
 		}
 	}
 
-	.start, .retry {
+	.start, .retry, .gift {
 		display: none;
 		position: fixed;
 		z-index: 100;
-		width: 120px;
-		height: 80px;
-		border: 3px solid lighten(@mainc, 50%);
-		background: lighten(@mainc, 58%);
-		border-radius: 40px;
 		color: lighten(@mainc, 40%);
 		text-shadow: 0 0 5px #fff;
-		padding: 18px 0 10px;
 		top: 50%;
 		left: 50%;
 		font-size: 16px;
 		line-height: 18px;
 		text-align: center;
-		margin-left: -60px;
 		margin-top: -55px;
 		font-weight: bold;
 		cursor: pointer;
@@ -196,17 +216,40 @@ body {
 			font-size: 12px;
 		}
 	}
+	.start {
+		border: 3px solid #f9b8b8;
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		background: lighten(@mainc, 56%);
+		padding: 30px 0 0 2px;
+		margin-left: -50px;
+		box-shadow: 0 2px 15px #f7a5a5;
+	}
+	.retry, .gift {
+		font-size: 14px;
+		width: 160px;
+		height: 46px;
+		padding: 5px 0 0;
+		margin-left: -80px;
+		background: lighten(@mainc, 60%);
+		border: 1px solid lighten(@mainc, 50%);
+		border-radius: 10px;
+	}
+	.gift {
+		margin-top: -116px;
+	}
 	.gameover {
 		display: none;
 		position: fixed;
 		z-index: 80;
 		background: lighten(@mainc, 50%);
 		width: 200px;
-		height: 120px;
+		height: 210px;
 		padding: 15px;
 		top: 50%;
 		left: 50%;
-		margin-top: -130px;
+		margin-top: -200px;
 		margin-left: -100px;
 		text-align: center;
 		font-size: 14px;

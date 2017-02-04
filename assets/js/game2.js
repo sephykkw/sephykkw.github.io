@@ -1,6 +1,6 @@
 (function ($) {
 
-	var totalbonus, score, level, isMute, timertime, boxnum;
+	var totalbonus, score, level, isMute, timertime, boxnum, plevel, clevel;
 	
 	$.fn.game2 = function(options) {
 		
@@ -9,38 +9,51 @@
 		options = $.extend({
 			defaulttimertime: 90,
 			boxnum: 6,
-			colorlevel: 0
+			ptnlevel: 0,
+			colorlevel: 0,
+			target: 2000
 		}, options);
 		
 		init();
 		
-		$('.start, .retry').click(function() {
-			$('.gameover').hide();
-			$(this).hide();
+		$('.start, .retry, .gift').click(function() {
+			$('.gameover, .start, .retry, .gift').hide();
+			totalbonus = 0;
 			$('.score').text(totalbonus);
 			
+			if($(this).hasClass('gift')) {
+				plevel = 1;
+			} else {
+				plevel = 0;
+			}
+
 			gengamebox();
 			
 			while (nosameexist()) {
 				alertpopup();
-				resetgamebox();
+				setTimeout(function() {
+					resetgamebox();
+				}, 200)
 			}		
 			//set timer
 			timertime = options.defaulttimertime;
 			$('#timer').text(showtime(timertime));
-			$('#progressbar').progressbar({value: timertime / options.defaulttimertime * 100});
+			setProgressBar(Math.round(timertime / options.defaulttimertime * 100));
 			
 			var timeinterval = setInterval(function(){
 				timertime--;
 				$('#timer').text(showtime(timertime));
-				$('#progressbar').progressbar({value: Math.round(timertime / options.defaulttimertime * 100)});
+				setProgressBar(Math.round(timertime / options.defaulttimertime * 100));
 				if (timertime < 0) {
 					$('#timer').text(showtime(0));
 					clearInterval(timeinterval);
 					$('.activebox').removeClass('activebox').addClass('inactivebox');
 					$('.gameover .goscore').html(totalbonus);
 					$('.gameover').fadeIn(500);
-					$('.retry').delay(500).fadeIn(500);
+					$('.retry').fadeIn(500);
+					if (totalbonus > options.target) {
+						$('.gift').fadeIn(500);
+					}
 				}
 			}, 1000);
 		});	
@@ -81,7 +94,7 @@
 					}	
 					var colId = '#c' + boxc;
 					var rc = rancolor();
-					$(colId).prepend('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
+					$(colId).prepend('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
 					var newboxid = '#r' + 0 + 'c' + boxc;
 					$(newboxid).animate({top: "0px"}, rantime());
 				});	
@@ -110,9 +123,10 @@
 			} 
 			html += '">BGM</div>';
 			html += '<div class="game_box"><ul id="game"></ul></div>';
-			html += '<div class="progressbar"><div id="progressbar"></div></div>';
-			html += '<div class="alertbox"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div>';
+			html += '<div class="progressbar"><div id="progressbar"><div id="progressbar-val"></div></div></div>';
+			html += '<div class="alertbox"><div class="inner"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div></div>';
 			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
+			html += '<div class="gift">d(ŐдŐ๑)<br/><span>神秘入口</span></div>';
 			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';
 			html += '<div class="gameover">\\(≧▽≦)/<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="circle"></div>';
@@ -123,14 +137,16 @@
 			bonusidnum = 0;
 			totalbonus = 0;
 			boxnum = options.boxnum;
+			plevel = options.ptnlevel;
+			clevel = options.colorlevel;
 			timertime = options.defaulttimertime;
 			defaulttimertime = options.defaulttimertime;
-			$("#progressbar").progressbar({value: 100});
+			setProgressBar(100);
 		}
 		
 		function alertpopup() {
 			$('.activebox').removeClass('activebox').addClass('inactivebox');
-			$('.alertbox').show().delay(1000).fadeOut(200);
+			$('.alertbox').fadeIn(200).delay(1200).fadeOut(200);
 		}
 		function rancolor() {
 			return Math.floor(Math.random()*boxnum);
@@ -146,7 +162,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 					$(newboxid).animate({top: "0px"}, rantime());
 				}
@@ -160,7 +176,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + rc + ' cl' + options.colorlevel + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 				}
 			}
@@ -180,7 +196,7 @@
 		}
 		function comparecolor(boxcolor, row, col, samecount) {
 			var newboxid = '#r' + row + 'c' + col;
-			if((!$(newboxid).hasClass('counted'))&&($(newboxid).attr('class').substr(4, 4) == boxcolor)) {
+			if((!$(newboxid).hasClass('counted'))&&($(newboxid).attr('class').substr(4, 5) == boxcolor)) {
 				$(newboxid).addClass('samecolor').addClass('counted');
 				samecount++;
 			}
@@ -188,13 +204,13 @@
 		}	
 		function comparecolor2(boxcolor, row, col, samecount) {
 			var newboxid = '#r' + row + 'c' + col;
-			if(($(newboxid).attr('class').substr(4, 4) == boxcolor)) {
+			if(($(newboxid).attr('class').substr(4, 5) == boxcolor)) {
 				samecount++;
 			}
 			return samecount;
 		}	
 		function boxcheck($box, samecount, method) {
-			var boxcolor = $box.attr('class').substr(4, 4);
+			var boxcolor = $box.attr('class').substr(4, 5);
 			var boxr = parseInt($box.attr('id').substr(1, 1));
 			var boxc = parseInt($box.attr('id').substr(3, 1));
 			switch (method) {
@@ -212,6 +228,9 @@
 					break;
 			}
 			return samecount;
+		}
+		function setProgressBar(ratio) {
+			$('#progressbar-val').css({'width': ratio + '%'});
 		}
 	}
 	
