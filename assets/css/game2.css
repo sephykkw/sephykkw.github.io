@@ -315,6 +315,11 @@ body {
   background-position: -42px 12px;
   background-repeat: no-repeat;
 }
+.preload {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+}
 .clearfix:after {
   content: ".";
   display: block;

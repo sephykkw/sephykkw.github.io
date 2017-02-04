@@ -11,18 +11,30 @@
 			boxnum: 6,
 			ptnlevel: 0,
 			colorlevel: 0,
-			target: 2000
+			target: 2000,
+			high: 800
 		}, options);
 		
 		init();
 		
 		$('.start, .retry, .gift').click(function() {
+			if($(this).hasClass('start')) {
+				audiobgm.load();
+				audio1.load();audiom1.load();audiom2.load();audiono.load();
+				audiol1.load();audiol2.load();audiol3.load();
+				audioh1.load();audioh2.load();
+				audiogift.load();
+			}
+			if ($('.container').attr('data-mute') == 'vol') {
+				audiobgm.play();
+			}
 			$('.gameover, .start, .retry, .gift').hide();
 			totalbonus = 0;
 			$('.score').text(totalbonus);
 			
 			if($(this).hasClass('gift')) {
 				plevel = 1;
+				audiogift.play();
 			} else {
 				plevel = 0;
 			}
@@ -30,6 +42,7 @@
 			gengamebox();
 			
 			while (nosameexist()) {
+				audiono.play();
 				alertpopup();
 				setTimeout(function() {
 					resetgamebox();
@@ -45,12 +58,19 @@
 				$('#timer').text(showtime(timertime));
 				setProgressBar(Math.round(timertime / options.defaulttimertime * 100));
 				if (timertime < 0) {
+					audiobgm.pause();
 					$('#timer').text(showtime(0));
 					clearInterval(timeinterval);
 					$('.activebox').removeClass('activebox').addClass('inactivebox');
 					$('.gameover .goscore').html(totalbonus);
 					$('.gameover').fadeIn(500);
 					$('.retry').fadeIn(500);
+					if (totalbonus > options.high) {
+						var id = 'audioh' + Math.floor(Math.random() * 2 + 1);
+					} else {
+						var id = 'audiol' + Math.floor(Math.random() * 3 + 1);
+					}
+					document.getElementById(id).play();
 					if (totalbonus > options.target) {
 						$('.gift').fadeIn(500);
 					}
@@ -75,6 +95,13 @@
 			//success
 			if(samecount > 2) {
 				//score & bonus
+				if (audio1.currentTime==0 || audio1.ended) {
+					audio1.play();
+				} else if (audio2.currentTime==0 || audio2.ended) {
+					audio2.play();
+				} else if (audio3.currentTime==0 || audio3.ended) {
+					audio3.play();
+				}
 				timertime+=0.3;
 				var bonus = Math.round((samecount - 1 + Math.pow((samecount - 2), 1.2)) * 10);
 				totalbonus += bonus;
@@ -100,12 +127,15 @@
 				});	
 				//check same
 				while(nosameexist()) {
+					audiono.play();
 					alertpopup();
 					resetgamebox();
 				}
 			}
 			//fail	
 			else {
+				var id = 'audiom' + Math.floor(Math.random() * 2 + 1);
+				document.getElementById(id).play();
 				timertime-=0.3;
 			}	
 			//reset
@@ -113,6 +143,19 @@
 			$('.counted').removeClass('counted');
 			$('.checked').removeClass('checked');
 		});
+
+		$('.mute').on('click', function() {
+			if($('.container').attr('data-mute') == 'vol') {
+				$(this).removeClass('active');
+				audiobgm.pause();
+				$('.container').attr('data-mute', 'mute');
+			} else {
+				$(this).addClass('active');
+				audiobgm.play();
+				$('.container').attr('data-mute', 'vol');
+			}
+		});
+
 		function init() {
 			var html = '<div class="bar">SCORE: <span class="score">0</span></div>';
 			html += '<div id="timer">0:00</div>';
