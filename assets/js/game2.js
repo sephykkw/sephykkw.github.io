@@ -11,13 +11,13 @@
 			boxnum: 6,
 			ptnlevel: 0,
 			colorlevel: 0,
-			target: 2000,
-			high: 800
+			target: [500, 1000],
+			high: 1000
 		}, options);
 		
 		init();
 		
-		$('.start, .retry, .gift').click(function() {
+		$('.start, .retry, .gift, .self').click(function() {
 			if($(this).hasClass('start')) {
 				audiobgm.load();
 				audio1.load();audiom1.load();audiom2.load();audiono.load();
@@ -28,15 +28,18 @@
 			if ($('.container').attr('data-mute') == 'vol') {
 				audiobgm.play();
 			}
-			$('.gameover, .start, .retry, .gift').hide();
+			$('.gameover, .start, .retry, .gift, .self').hide();
 			totalbonus = 0;
 			$('.score').text(totalbonus);
 			
 			if($(this).hasClass('gift')) {
 				plevel = 1;
 				audiogift.play();
+			} else if($(this).hasClass('self')) {
+				plevel = 2;
+				audiogift.play();
 			} else {
-				plevel = 0;
+				plevel = 2;
 			}
 
 			gengamebox();
@@ -71,7 +74,9 @@
 						var id = 'audiol' + Math.floor(Math.random() * 3 + 1);
 					}
 					document.getElementById(id).play();
-					if (totalbonus > options.target) {
+					if (plevel > 0 && totalbonus > options.target[1]) {
+						$('.self').fadeIn(500);
+					} else if (totalbonus > options.target[0]) {
 						$('.gift').fadeIn(500);
 					}
 				}
@@ -170,6 +175,7 @@
 			html += '<div class="alertbox"><div class="inner"><span>剩下全是单身汪</span><br/><br/>╭(╯^╰)╮</div></div>';
 			html += '<div class="start">(´,,•ω•,,‘)<br/><span>凯凯人家来了</span></div>';
 			html += '<div class="gift">d(ŐдŐ๑)<br/><span>神秘入口</span></div>';
+			html += '<div class="self"> (*≧▽≦) <br/><span>别点进来哦</span></div>';
 			html += '<div class="retry">(✿◡‿◡)<br/><span>再来一下下</span></div>';
 			html += '<div class="gameover">\\(≧▽≦)/<br/>SCORE: <span class="goscore"></span></div>';
 			html += '<div class="circle"></div>';

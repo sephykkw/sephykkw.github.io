@@ -28,6 +28,17 @@ body {
   border-radius: 20px;
   padding-bottom: 15px;
 }
+.container .loading {
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  margin-top: -25px;
+  color: #f7a1a1;
+}
 .container .progressbar {
   position: absolute;
   top: 605px;
@@ -89,22 +100,40 @@ body {
   background-image: url('../images/g2/6.png');
 }
 .container .box.box10 {
-  background-image: url('../images/g3/1.png');
+  background-image: url('../images/g2/2-1.jpg');
 }
 .container .box.box11 {
-  background-image: url('../images/g3/2.jpg');
+  background-image: url('../images/g2/2-2.jpg');
 }
 .container .box.box12 {
-  background-image: url('../images/g3/3.png');
+  background-image: url('../images/g2/2-3.jpg');
 }
 .container .box.box13 {
-  background-image: url('../images/g3/4.jpg');
+  background-image: url('../images/g2/2-4.jpg');
 }
 .container .box.box14 {
-  background-image: url('../images/g3/5.png');
+  background-image: url('../images/g2/2-5.jpg');
 }
 .container .box.box15 {
-  background-image: url('../images/g3/6.jpg');
+  background-image: url('../images/g2/2-6.jpg');
+}
+.container .box.box20 {
+  background-image: url('../images/g2/3-1.jpg');
+}
+.container .box.box21 {
+  background-image: url('../images/g2/3-2.jpg');
+}
+.container .box.box22 {
+  background-image: url('../images/g2/3-3.jpg');
+}
+.container .box.box23 {
+  background-image: url('../images/g2/3-4.jpg');
+}
+.container .box.box24 {
+  background-image: url('../images/g2/3-5.jpg');
+}
+.container .box.box25 {
+  background-image: url('../images/g2/3-6.jpg');
 }
 .container .box.cl00 {
   background-color: #feebc8;
@@ -187,7 +216,8 @@ body {
 }
 .container .start,
 .container .retry,
-.container .gift {
+.container .gift,
+.container .self {
   display: none;
   position: fixed;
   z-index: 100;
@@ -204,7 +234,8 @@ body {
 }
 .container .start > span,
 .container .retry > span,
-.container .gift > span {
+.container .gift > span,
+.container .self > span {
   font-size: 12px;
 }
 .container .start {
@@ -218,7 +249,8 @@ body {
   box-shadow: 0 2px 15px #f7a5a5;
 }
 .container .retry,
-.container .gift {
+.container .gift,
+.container .self {
   font-size: 14px;
   width: 160px;
   height: 46px;
@@ -228,7 +260,8 @@ body {
   border: 1px solid #f9b8b8;
   border-radius: 10px;
 }
-.container .gift {
+.container .gift,
+.container .self {
   margin-top: -116px;
 }
 .container .gameover {

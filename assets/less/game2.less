@@ -31,6 +31,18 @@ body {
 	border-radius: 20px;
 	padding-bottom: 15px;
 
+	.loading {
+		width: 400px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 24px;
+		text-align: center;
+		position: fixed;
+		top: 50%;
+		margin-top: -25px;
+		color: lighten(@mainc, 45%);
+	}
+
 	.progressbar {
 		position: absolute;
 		top: 605px;
@@ -96,22 +108,41 @@ body {
 		}
 
 		&.box10 {
-			background-image: url('../images/g3/1.png');
+			background-image: url('../images/g2/2-1.jpg');
 		}
 		&.box11 {
-			background-image: url('../images/g3/2.jpg');
+			background-image: url('../images/g2/2-2.jpg');
 		}
 		&.box12 {
-			background-image: url('../images/g3/3.png');
+			background-image: url('../images/g2/2-3.jpg');
 		}
 		&.box13 {
-			background-image: url('../images/g3/4.jpg');
+			background-image: url('../images/g2/2-4.jpg');
 		} 
 		&.box14 {
-			background-image: url('../images/g3/5.png');
+			background-image: url('../images/g2/2-5.jpg');
 		}
 		&.box15 {
-			background-image: url('../images/g3/6.jpg');
+			background-image: url('../images/g2/2-6.jpg');
+		}
+
+		&.box20 {
+			background-image: url('../images/g2/3-1.jpg');
+		}
+		&.box21 {
+			background-image: url('../images/g2/3-2.jpg');
+		}
+		&.box22 {
+			background-image: url('../images/g2/3-3.jpg');
+		}
+		&.box23 {
+			background-image: url('../images/g2/3-4.jpg');
+		} 
+		&.box24 {
+			background-image: url('../images/g2/3-5.jpg');
+		}
+		&.box25 {
+			background-image: url('../images/g2/3-6.jpg');
 		}
 
 		&.cl00 {
@@ -198,7 +229,7 @@ body {
 		}
 	}
 
-	.start, .retry, .gift {
+	.start, .retry, .gift, .self {
 		display: none;
 		position: fixed;
 		z-index: 100;
@@ -226,7 +257,7 @@ body {
 		margin-left: -50px;
 		box-shadow: 0 2px 15px #f7a5a5;
 	}
-	.retry, .gift {
+	.retry, .gift, .self {
 		font-size: 14px;
 		width: 160px;
 		height: 46px;
@@ -236,7 +267,7 @@ body {
 		border: 1px solid lighten(@mainc, 50%);
 		border-radius: 10px;
 	}
-	.gift {
+	.gift, .self {
 		margin-top: -116px;
 	}
 	.gameover {
