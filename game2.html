@@ -14,9 +14,9 @@
 </div>
 
 <div class="preload">
-	<img src="./assets/images/g2/1.png" /><img src="./assets/images/g2/2.png" /><img src="./assets/images/g2/3.png" /><img src="./assets/images/g2/4.png" /><img src="./assets/images/g2/5.png" />
-	<img src="./assets/images/g2/2-1.jpg" /><img src="./assets/images/g2/2-2.jpg" /><img src="./assets/images/g2/2-3.jpg" /><img src="./assets/images/g2/2-4.jpg" /><img src="./assets/images/g2/2-5.jpg" />
-	<img src="./assets/images/g2/3-1.jpg" /><img src="./assets/images/g2/3-2.jpg" /><img src="./assets/images/g2/3-3.jpg" /><img src="./assets/images/g2/3-4.jpg" /><img src="./assets/images/g2/3-5.jpg" />
+	<img src="./assets/images/g2/1-1.png" /><img src="./assets/images/g2/1-2.png" /><img src="./assets/images/g2/1-3.png" /><img src="./assets/images/g2/1-4.png" /><img src="./assets/images/g2/1-5.png" /><img src="./assets/images/g2/1-6.png" /><img src="./assets/images/g2/1-7.png" /><img src="./assets/images/g2/1-8.png" /><img src="./assets/images/g2/1-9.png" />
+	<img src="./assets/images/g2/2-1.jpg" /><img src="./assets/images/g2/2-2.jpg" /><img src="./assets/images/g2/2-3.jpg" /><img src="./assets/images/g2/2-4.jpg" /><img src="./assets/images/g2/2-5.jpg" /><img src="./assets/images/g2/2-6.jpg" />
+	<img src="./assets/images/g2/3-1.jpg" /><img src="./assets/images/g2/3-2.jpg" /><img src="./assets/images/g2/3-3.jpg" /><img src="./assets/images/g2/3-4.jpg" /><img src="./assets/images/g2/3-5.jpg" /><img src="./assets/images/g2/3-6.jpg" />
 </div>
 
 <audio id="audio1" src="./assets/audio2/1.mp3" autobuffer="true" hidden="true"></audio>
@@ -37,7 +37,7 @@
 <script src="./assets/js/game2.js"></script>
 <script>
 	$(function() {
-		var i = 0;
+		var i = 0, t = 0;
 		var funcPort =　function() {
 			if (!$('.container').hasClass('active')) {
 				loadGame();
@@ -53,13 +53,14 @@
 			}
 		}
 		var loadGame = function() {
-			if (i > 14) {
+			if (i > 20) {
 				$('.container').html('').game2();
 				return;
 			}
-			$('.container').html('<div class="loading">LOADING</div>');
+			$('.container').html('<div class="loading">LOADING...</div>');
 			var itv = setInterval(function() {
-				if (i > 14) {
+				t++;
+				if (t > 5 || i > 20) {
 					$('.container').html('').game2();
 					clearInterval(itv);
 				}

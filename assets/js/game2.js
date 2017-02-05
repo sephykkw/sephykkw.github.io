@@ -1,13 +1,13 @@
 (function ($) {
 
-	var totalbonus, score, level, isMute, timertime, boxnum, plevel, clevel;
+	var totalbonus, score, level, isMute, timertime, boxnum, plevel, clevel, seed;
 	
 	$.fn.game2 = function(options) {
 		
 		var container = $(this);
 
 		options = $.extend({
-			defaulttimertime: 90,
+			defaulttimertime: 60,
 			boxnum: 6,
 			ptnlevel: 0,
 			colorlevel: 0,
@@ -18,12 +18,17 @@
 		init();
 		
 		$('.start, .retry, .gift, .self').click(function() {
-			if($(this).hasClass('start')) {
+			if ($(this).hasClass('start')) {
 				audiobgm.load();
 				audio1.load();audiom1.load();audiom2.load();audiono.load();
 				audiol1.load();audiol2.load();audiol3.load();
 				audioh1.load();audioh2.load();
 				audiogift.load();
+			}
+			if ($(this).hasClass('start') || $(this).hasClass('retry')) {				
+				seed = Math.floor(Math.random() * 9);
+			} else {
+				seed = 0;
 			}
 			if ($('.container').attr('data-mute') == 'vol') {
 				audiobgm.play();
@@ -126,7 +131,7 @@
 					}	
 					var colId = '#c' + boxc;
 					var rc = rancolor();
-					$(colId).prepend('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
+					$(colId).prepend('<li class="box box' + plevel + (rc + seed) % 9 + ' cl' + clevel + rc + ' original activebox" id=r'+ 0 + 'c' + boxc + '>' + 0 + boxc + '</li>');
 					var newboxid = '#r' + 0 + 'c' + boxc;
 					$(newboxid).animate({top: "0px"}, rantime());
 				});	
@@ -211,7 +216,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + plevel + (rc + seed) % 9 + ' cl' + clevel + rc + ' original activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 					$(newboxid).animate({top: "0px"}, rantime());
 				}
@@ -225,7 +230,7 @@
 				for (j = 0; j < 10; j++) {
 					var colId = '#c' + i;
 					var rc =  rancolor();
-					$(colId).append('<li class="box box' + plevel + rc + ' cl' + clevel + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
+					$(colId).append('<li class="box box' + plevel + (rc + seed) % 9 + ' cl' + clevel + rc + ' activebox" id=r'+ j + 'c' + i + '>' + j + i + '</li>');
 					var newboxid = '#r' + j + 'c' + i;
 				}
 			}

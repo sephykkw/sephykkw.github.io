@@ -84,22 +84,31 @@ body {
   cursor: pointer;
 }
 .container .box.box00 {
-  background-image: url('../images/g2/1.png');
+  background-image: url('../images/g2/1-1.png');
 }
 .container .box.box01 {
-  background-image: url('../images/g2/2.png');
+  background-image: url('../images/g2/1-2.png');
 }
 .container .box.box02 {
-  background-image: url('../images/g2/3.png');
+  background-image: url('../images/g2/1-3.png');
 }
 .container .box.box03 {
-  background-image: url('../images/g2/4.png');
+  background-image: url('../images/g2/1-4.png');
 }
 .container .box.box04 {
-  background-image: url('../images/g2/5.png');
+  background-image: url('../images/g2/1-5.png');
 }
 .container .box.box05 {
-  background-image: url('../images/g2/6.png');
+  background-image: url('../images/g2/1-6.png');
+}
+.container .box.box06 {
+  background-image: url('../images/g2/1-7.png');
+}
+.container .box.box07 {
+  background-image: url('../images/g2/1-8.png');
+}
+.container .box.box08 {
+  background-image: url('../images/g2/1-9.png');
 }
 .container .box.box10 {
   background-image: url('../images/g2/2-1.jpg');
