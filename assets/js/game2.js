@@ -11,7 +11,7 @@
 			boxnum: 6,
 			ptnlevel: 0,
 			colorlevel: 0,
-			target: [500, 1000],
+			target: [1000, 2000],
 			high: 1000
 		}, options);
 		
