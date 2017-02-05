@@ -11,6 +11,8 @@ body {
 body {
   background: #fcdede;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .wrapper {
   width: 430px;
@@ -352,6 +354,7 @@ body {
   position: absolute;
   top: 100%;
   left: 100%;
+  opacity: 0;
 }
 .clearfix:after {
   content: ".";

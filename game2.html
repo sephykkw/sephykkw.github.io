@@ -14,11 +14,9 @@
 </div>
 
 <div class="preload">
-	<img src="./assets/images/g2/1.png" />
-	<img src="./assets/images/g2/2.png" />
-	<img src="./assets/images/g2/3.png" />
-	<img src="./assets/images/g2/4.png" />
-	<img src="./assets/images/g2/5.png" />
+	<img src="./assets/images/g2/1.png" /><img src="./assets/images/g2/2.png" /><img src="./assets/images/g2/3.png" /><img src="./assets/images/g2/4.png" /><img src="./assets/images/g2/5.png" />
+	<img src="./assets/images/g2/2-1.jpg" /><img src="./assets/images/g2/2-2.jpg" /><img src="./assets/images/g2/2-3.jpg" /><img src="./assets/images/g2/2-4.jpg" /><img src="./assets/images/g2/2-5.jpg" />
+	<img src="./assets/images/g2/3-1.jpg" /><img src="./assets/images/g2/3-2.jpg" /><img src="./assets/images/g2/3-3.jpg" /><img src="./assets/images/g2/3-4.jpg" /><img src="./assets/images/g2/3-5.jpg" />
 </div>
 
 <audio id="audio1" src="./assets/audio2/1.mp3" autobuffer="true" hidden="true"></audio>
@@ -39,19 +37,35 @@
 <script src="./assets/js/game2.js"></script>
 <script>
 	$(function() {
+		var i = 0;
 		var funcPort =　function() {
 			if (!$('.container').hasClass('active')) {
-				$('.container').html('').game2();
+				loadGame();
 			}
 		}
 		var funcLand = function() {
 			if (!$('.container').hasClass('active')) {
 				if ($(window).height() > 635) {
-					$('.container').html('').game2();
+					loadGame();
 				} else {
-					$('.container').html('<div style="width: 100%; text-align: center; position: absolute; top: 48%">Pls rotate your screen</div>');
+					$('.container').html('<div class="loading">PLS ROTATE</div>');
 				}
 			}
+		}
+		var loadGame = function() {
+			console.log(i)
+			if (i > 14) {
+				$('.container').html('').game2();
+				return;
+			}
+			$('.container').html('<div class="loading">LOADING</div>');
+			var itv = setInterval(function() {
+				console.log(i)
+				if (i > 14) {
+					$('.container').html('').game2();
+					clearInterval(itv);
+				}
+			}, 500)
 		}
 		var resize = function() {
 			var w = $(window).width();
@@ -66,7 +80,9 @@
 				$('.wrapper').css({'transform': 'scale(1)'});
 			}
 		}
-		
+
+		$('.preload img').load(function() { i++ })
+
 		orient(funcPort, funcLand);
 		$(window).on( 'orientationchange', function(e){
 			window.location.reload();
