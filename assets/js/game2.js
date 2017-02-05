@@ -39,7 +39,7 @@
 				plevel = 2;
 				audiogift.play();
 			} else {
-				plevel = 2;
+				plevel = 0;
 			}
 
 			gengamebox();

@@ -53,14 +53,12 @@
 			}
 		}
 		var loadGame = function() {
-			console.log(i)
 			if (i > 14) {
 				$('.container').html('').game2();
 				return;
 			}
 			$('.container').html('<div class="loading">LOADING</div>');
 			var itv = setInterval(function() {
-				console.log(i)
 				if (i > 14) {
 					$('.container').html('').game2();
 					clearInterval(itv);
