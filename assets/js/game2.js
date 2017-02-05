@@ -12,7 +12,7 @@
 			ptnlevel: 0,
 			colorlevel: 0,
 			target: [1000, 1700],
-			high: 1000
+			high: 1300
 		}, options);
 		
 		init();
